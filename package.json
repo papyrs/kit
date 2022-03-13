@@ -1,0 +1,25 @@
+{
+  "name": "@papyrs/kit",
+  "version": "1.0.0",
+  "description": "The templates for the blog deployed on the Internet Computer with Papyrs",
+  "main": "index.js",
+  "scripts": {
+    "build:js": "node ./build.js",
+    "build:sw": "node ./build-sw.js",
+    "copy": "node ./copy.js",
+    "build": "npm run build:js && npm run copy && npm run build:sw",
+    "format": "prettier --write ."
+  },
+  "author": "David Dal Busco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/papyrs/ic-kit"
+  },
+  "homepage": "https://papy.rs",
+  "devDependencies": {
+    "esbuild": "^0.14.25",
+    "html-minifier-terser": "^6.1.0",
+    "prettier": "^2.5.1",
+    "workbox-build": "^6.5.1"
+  }
+}
