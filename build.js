@@ -5,6 +5,11 @@ const {readFile, writeFile, mkdir, rm} = require('fs').promises;
 const minify = require('html-minifier-terser').minify;
 const crypto = require('crypto');
 
+const {sassPlugin} = require('esbuild-sass-plugin');
+const postcss = require('postcss');
+const autoprefixer = require('autoprefixer');
+const postcssPresetEnv = require('postcss-preset-env');
+
 const buildScript = async () => {
   const {metafile} = esbuild.buildSync({
     entryPoints: ['src/index.js'],
@@ -36,16 +41,24 @@ const scriptSha256 = async (scriptPath) => {
   return `'sha256-${crypto.createHash("sha256").update(script).digest("base64")}'`;
 };
 
-const buildCSS = () => {
-  const {metafile} = esbuild.buildSync({
-    entryPoints: ['src/index.css', 'src/doc/index.css'],
+const buildCSS = async () => {
+  const {metafile} = await esbuild.build({
+    entryPoints: ['src/index.scss', 'src/doc/index.scss'],
     entryNames: '[dir]/[name]-[hash]',
     bundle: true,
     minify: true,
     format: 'esm',
     target: ['esnext'],
     outdir: 'dist/build',
-    metafile: true
+    metafile: true,
+    plugins: [
+      sassPlugin({
+        async transform(source, resolveDir) {
+          const {css} = await postcss([autoprefixer, postcssPresetEnv()]).process(source, {from: undefined});
+          return css;
+        }
+      })
+    ]
   });
 
   const {outputs} = metafile;
@@ -98,7 +111,7 @@ const buildHTML = async ({srcPath, destPath, scripts, cssPaths}) => {
 
   const scripts = await buildScript();
 
-  const cssPaths = buildCSS();
+  const cssPaths = await buildCSS();
 
   await buildHTML({
     srcPath: 'src/doc/index.html',

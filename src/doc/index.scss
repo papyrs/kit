@@ -1,0 +1,5 @@
+@use '../themes/mixins/studio';
+
+deckgo-doc {
+  @include studio.editor;
+}

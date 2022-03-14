@@ -1,0 +1,7 @@
+@mixin editor {
+  --stylo-box-shadow: 3px 3px black;
+  --stylo-border: 1px solid black;
+  --stylo-toolbar-button-color-active: var(--color-quartenary);
+  --stylo-list-background-active: rgba(var(--color-quartenary-rgb), 0.4);
+  --stylo-toolbar-border-radius: 0;
+}

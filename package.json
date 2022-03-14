@@ -6,6 +6,7 @@
   "scripts": {
     "build:js": "node ./build.js",
     "build:sw": "node ./build-sw.js",
+    "sync:scss": "node ./copy-scss.js",
     "copy": "node ./copy.js",
     "build": "npm run build:js && npm run copy && npm run build:sw",
     "format": "prettier --write ."
@@ -17,8 +18,12 @@
   },
   "homepage": "https://papy.rs",
   "devDependencies": {
+    "autoprefixer": "^10.4.2",
     "esbuild": "^0.14.25",
+    "esbuild-sass-plugin": "^2.2.4",
     "html-minifier-terser": "^6.1.0",
+    "postcss": "^8.4.8",
+    "postcss-preset-env": "^7.4.2",
     "prettier": "^2.5.1",
     "workbox-build": "^6.5.1"
   }

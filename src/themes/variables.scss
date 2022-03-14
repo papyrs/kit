@@ -1,0 +1,50 @@
+:root {
+  --padding: 1.45rem;
+  --z-index: 1;
+
+  --nav-height: 3.45rem;
+
+  /** Colors */
+
+  --color-primary: #2d294c;
+  --color-primary-rgb: 45, 41, 76;
+  --color-primary-contrast: #ffffff;
+  --color-primary-contrast-rgb: 255, 255, 255;
+  --color-primary-shade: #282443;
+  --color-primary-tint: #423e5e;
+
+  --color-secondary: #81a8c7;
+  --color-secondary-rgb: 129, 168, 199;
+  --color-secondary-contrast: #000000;
+  --color-secondary-contrast-rgb: 0, 0, 0;
+  --color-secondary-shade: #7294af;
+  --color-secondary-tint: #8eb1cd;
+
+  --color-tertiary: #ffeed6;
+  --color-tertiary-rgb: 255, 238, 214;
+  --color-tertiary-contrast: #000000;
+  --color-tertiary-contrast-rgb: 0, 0, 0;
+  --color-tertiary-shade: #e0d1bc;
+  --color-tertiary-tint: #fff0da;
+
+  --color-quartenary: #fde74c;
+  --color-quartenary-rgb: 253, 231, 76;
+  --color-quartenary-contrast: #000000;
+  --color-quartenary-contrast-rgb: 0, 0, 0;
+  --color-quartenary-shade: #dfcb43;
+  --color-quartenary-tint: #fde95e;
+
+  --color-quaternary-opaque: #fff6bc;
+  --color-quaternary-opaque-rgb: 255, 246, 188;
+  --color-quaternary-opaque-contrast: #000000;
+  --color-quaternary-opaque-contrast-rgb: 0, 0, 0;
+  --color-quaternary-opaque-shade: #e0d8a5;
+  --color-quaternary-opaque-tint: #fff7c3;
+
+  --color-highlight: #ef476f;
+  --color-highlight-rgb: 239, 71, 111;
+  --color-highlight-contrast: #ffffff;
+  --color-highlight-contrast-rgb: 255, 255, 255;
+  --color-highlight-shade: #d23e62;
+  --color-highlight-tint: #f1597d;
+}
