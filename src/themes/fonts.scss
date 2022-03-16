@@ -20,19 +20,20 @@ h4,
 h5 {
   font-weight: 700;
   line-height: var(--line-height-title);
-  margin: 0 0 calc(var(--padding) / 2);
+  margin: 0 0 calc(var(--padding) / 3);
 }
 
 p {
   margin: 0 0 calc(3 * var(--padding));
 }
 
+a,
 input,
 button,
 select,
 textarea {
   font-family: inherit;
-  font-size: var(--font-size-h4);
+  font-size: var(--font-size-h5);
 }
 
 :root {

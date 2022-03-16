@@ -1,0 +1,32 @@
+@use './shadow';
+
+@mixin article {
+  @include shadow.strong;
+
+  width: calc(100vw - 1.25rem);
+  max-width: 960px;
+  aspect-ratio: 210 / 297;
+
+  padding: 1.75rem;
+  margin: 0.75rem auto;
+
+  @media screen and (min-width: 768px) {
+    padding: 4.75rem;
+    margin: 0.25rem auto;
+  }
+
+  outline: none;
+
+  white-space: pre-wrap;
+
+  font-size: 125%;
+
+  deckgo-lazy-img {
+    display: block;
+  }
+
+  deckgo-highlight-code {
+    @include shadow.shadow;
+    --deckgo-highlight-code-carbon-toolbar-display: none;
+  }
+}

@@ -1,7 +1,8 @@
+@use './mixins/shadow';
+
 input,
 textarea {
-  box-shadow: 3px 3px black;
-  border: 1px solid black;
+  @include shadow.strong;
 
   margin: 0.45rem 0;
   padding: 0.25rem 0.45rem;

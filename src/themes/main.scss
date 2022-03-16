@@ -22,4 +22,8 @@ nav {
   top: 0;
   right: 0;
   z-index: calc(var(--z-index) + 996);
+
+  @media (min-width: 1140px) {
+    margin: 0.75rem;
+  }
 }

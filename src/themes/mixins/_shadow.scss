@@ -1,0 +1,10 @@
+@mixin strong {
+  @include shadow;
+  background: white;
+  color: black;
+}
+
+@mixin shadow {
+  box-shadow: 3px 3px black;
+  border: 1px solid black;
+}

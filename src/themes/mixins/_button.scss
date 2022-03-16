@@ -1,3 +1,5 @@
+@use './shadow';
+
 @mixin primary {
   outline: 0;
   cursor: pointer;
@@ -19,10 +21,7 @@
   transition: color 0.15s ease-out, background 0.15s ease-out, transform 0.15s ease-out,
     box-shadow 0.15s ease-out, border 0.15s ease-out;
 
-  background: white;
-  color: black;
-  box-shadow: 3px 3px black;
-  border: 1px solid black;
+  @include shadow.strong;
 
   &:disabled {
     background: var(--color-primary);

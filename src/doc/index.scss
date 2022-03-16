@@ -1,5 +1,5 @@
-@use '../themes/mixins/studio';
+@use '../themes/mixins/doc';
 
-deckgo-doc {
-  @include studio.editor;
+article.deckgo-doc {
+  @include doc.article;
 }
