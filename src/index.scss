@@ -1,3 +1,5 @@
+@use './themes/mixins/overlay';
+
 @import "./themes/fonts.scss";
 @import "./themes/theme.scss";
 @import "./themes/main.scss";
@@ -6,3 +8,24 @@
 @import "./themes/link.scss";
 @import "./themes/input.scss";
 @import "./themes/variables.scss";
+
+div.popover {
+  @include overlay.popover;
+
+  div.wrapper {
+    transform: scale(0.95);
+
+    opacity: 0;
+
+    transition-property: opacity, transform;
+    transition-duration: 0.15s, 0.15s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  }
+
+  &.show div.wrapper {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

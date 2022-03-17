@@ -12,4 +12,71 @@
 
     <span>Menu </span>
   </button>
+
+  <div role="menu" aria-orientation="vertical" class="popover" style="display: none;">
+    <div class="backdrop"></div>
+    <div class="wrapper">Hello World</div>
+  </div>
 </nav>
+
+<script nonce="papy-b2f605dc-c66e-49fc-885e-89accd4f5d44">
+  const setPosition = () => {
+    const anchor = document.querySelector('button.toolbar');
+    const {bottom, left} = anchor ? anchor.getBoundingClientRect() : {bottom: 0, left: 0};
+
+    const popover = document.querySelector('div.popover');
+    popover?.style.setProperty('--popover-top', `${bottom}px`);
+    popover?.style.setProperty('--popover-left', `${left}px`);
+  };
+
+  const showPopover = () => {
+    const popover = document.querySelector('div.popover');
+
+    if (!popover) {
+      console.error('No popover to display. Quite weird');
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      observer.disconnect();
+
+      setTimeout(() => popover?.classList.add('show'), 100);
+    });
+
+    observer.observe(popover, {attributes: true});
+
+    popover?.style.setProperty('display', 'block');
+  };
+
+  const hidePopover = () => {
+    const popover = document.querySelector('div.popover');
+
+    if (!popover) {
+      console.error('No popover to display. Quite weird');
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      observer.disconnect();
+
+      setTimeout(() => popover?.style.setProperty('display', 'none'), 100);
+    });
+
+    observer.observe(popover, {attributes: true});
+
+    popover?.classList.remove('show');
+  };
+
+  const init = () => {
+    setPosition();
+
+    const anchor = document.querySelector('button.toolbar');
+    anchor?.addEventListener('click', showPopover, {passive: true});
+
+    const backdrop = document.querySelector('div.backdrop');
+    backdrop?.addEventListener('click', hidePopover, {passive: true});
+  };
+
+  document.addEventListener('DOMContentLoaded', init, {once: true});
+  window.addEventListener('resize', setPosition, {passive: true});
+</script>

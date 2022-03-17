@@ -5,11 +5,13 @@
 
 <meta
   http-equiv="Content-Security-Policy"
-  content="default-src 'self';
-    img-src 'self' data: https:;
-    style-src 'self' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://cdn.jsdelivr.net/ https://unpkg.com/@deckdeckgo/ https://unpkg.com/@papyrs/;
+  content="default-src 'none';
+    img-src 'self' https://media.tenor.com/ https://images.unsplash.com/;
+    manifest-src 'self';
+    style-src 'self' 'unsafe-inline' https://www.gstatic.com https://fonts.googleapis.com https://unpkg.com/;
     font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
-    script-src 'self' {{DECKDECKGO_EXTRA_SHAS}} https://unpkg.com/@deckdeckgo/ https://unpkg.com/@papyrs/;" />
+    script-src 'self' 'nonce-papy-b2f605dc-c66e-49fc-885e-89accd4f5d44' {{DECKDECKGO_EXTRA_SHAS}} https://unpkg.com/;
+    upgrade-insecure-requests;" />
 
 <meta property="og:site_name" content="Papyrs" />
 
