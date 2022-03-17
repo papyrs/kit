@@ -54,7 +54,9 @@ const buildCSS = async () => {
     plugins: [
       sassPlugin({
         async transform(source, resolveDir) {
-          const {css} = await postcss([autoprefixer, postcssPresetEnv()]).process(source, {from: undefined});
+          const {css} = await postcss([autoprefixer, postcssPresetEnv()]).process(source, {
+            from: undefined
+          });
           return css;
         }
       })
@@ -86,9 +88,12 @@ const buildHTML = async ({srcPath, destPath, scripts, cssPaths}) => {
   );
 
   const head = await minify(await readFile('src/templates/head.html', 'utf8'), minifyOptions);
+  const nav = await minify(await readFile('src/templates/nav.html', 'utf8'), minifyOptions);
 
   const html = (await minify(src, minifyOptions))
     .replace('<!-- DECKDECKGO_HEAD -->', head)
+    .replace('<!-- DECKDECKGO_NAV -->', nav)
+    .replace('<!-- DECKDECKGO_WEB_SOCIAL_SHARE -->', webSocialShare)
     .replace('{{DECKDECKGO_EXTRA_SHAS}}', scripts.map(({sha256}) => sha256).join(' '))
     .replace(
       '<!-- DECKDECKGO_HEAD_SCRIPT -->',
@@ -99,8 +104,7 @@ const buildHTML = async ({srcPath, destPath, scripts, cssPaths}) => {
       cssPaths
         .map((cssPath) => `<link href="${cssPath.replace('dist', '')}" rel="stylesheet">`)
         .join('')
-    )
-    .replace('<!-- DECKDECKGO_WEB_SOCIAL_SHARE -->', webSocialShare);
+    );
 
   await writeFile(destPath, html);
 };

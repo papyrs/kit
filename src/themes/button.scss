@@ -10,4 +10,8 @@ button {
   &.icon {
     @include button.icon;
   }
+
+  &.toolbar {
+    @include button.toolbar;
+  }
 }

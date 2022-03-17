@@ -1,4 +1,5 @@
 @use './shadow';
+@use './text';
 
 @mixin primary {
   outline: 0;
@@ -63,4 +64,27 @@
   border: none;
   background: inherit;
   margin: 0;
+}
+
+@mixin toolbar {
+  display: flex;
+  flex-direction: column;
+
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0.45rem 0.15rem;
+  padding: 0 0.15rem;
+
+  font-size: var(--font-size-very-small);
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background: var(--color-quaternary-opaque);
+    color: var(--color-quaternary-opaque-contrast);
+  }
+
+  span {
+    width: 100%;
+    @include text.truncate;
+  }
 }
