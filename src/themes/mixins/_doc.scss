@@ -1,4 +1,4 @@
-@use './shadow';
+@use "./shadow";
 
 @mixin article {
   @include shadow.strong;

@@ -1,4 +1,4 @@
-@use './themes/mixins/overlay';
+@use "./themes/mixins/overlay";
 
 @import "./themes/fonts.scss";
 @import "./themes/theme.scss";
@@ -20,8 +20,7 @@ div.popover {
     transition-property: opacity, transform;
     transition-duration: 0.15s, 0.15s;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
+      cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   &.show div.wrapper {
