@@ -13,70 +13,39 @@
     <span>Menu </span>
   </button>
 
-  <div role="menu" aria-orientation="vertical" class="popover" style="display: none;">
+  <div role="menu" aria-orientation="vertical" class="popover" style="display: none">
     <div class="backdrop"></div>
-    <div class="wrapper">Hello World</div>
+    <div class="wrapper">
+      <a
+        href="/"
+        class="menu more"
+        aria-haspopup="menu"
+        rel="noopener norefferer"
+        style="display: none">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" width="24px" viewBox="0 0 512 512">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+            d="M256 112v288M400 256H112" />
+        </svg>
+        More from same author
+      </a>
+      <button type="button" role="menuitem" aria-haspopup="menu" class="menu share">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="currentColor">
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
+        </svg>
+        Share
+      </button>
+    </div>
   </div>
 </nav>
-
-<script nonce="papy-b2f605dc-c66e-49fc-885e-89accd4f5d44">
-  const setPosition = () => {
-    const anchor = document.querySelector('button.toolbar');
-    const {bottom, left} = anchor ? anchor.getBoundingClientRect() : {bottom: 0, left: 0};
-
-    const popover = document.querySelector('div.popover');
-    popover?.style.setProperty('--popover-top', `${bottom}px`);
-    popover?.style.setProperty('--popover-left', `${left}px`);
-  };
-
-  const showPopover = () => {
-    const popover = document.querySelector('div.popover');
-
-    if (!popover) {
-      console.error('No popover to display. Quite weird');
-      return;
-    }
-
-    const observer = new MutationObserver(() => {
-      observer.disconnect();
-
-      setTimeout(() => popover?.classList.add('show'), 100);
-    });
-
-    observer.observe(popover, {attributes: true});
-
-    popover?.style.setProperty('display', 'block');
-  };
-
-  const hidePopover = () => {
-    const popover = document.querySelector('div.popover');
-
-    if (!popover) {
-      console.error('No popover to display. Quite weird');
-      return;
-    }
-
-    const observer = new MutationObserver(() => {
-      observer.disconnect();
-
-      setTimeout(() => popover?.style.setProperty('display', 'none'), 100);
-    });
-
-    observer.observe(popover, {attributes: true});
-
-    popover?.classList.remove('show');
-  };
-
-  const init = () => {
-    setPosition();
-
-    const anchor = document.querySelector('button.toolbar');
-    anchor?.addEventListener('click', showPopover, {passive: true});
-
-    const backdrop = document.querySelector('div.backdrop');
-    backdrop?.addEventListener('click', hidePopover, {passive: true});
-  };
-
-  document.addEventListener('DOMContentLoaded', init, {once: true});
-  window.addEventListener('resize', setPosition, {passive: true});
-</script>

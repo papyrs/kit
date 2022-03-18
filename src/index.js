@@ -1,3 +1,6 @@
+import {initNav} from './lib/nav';
+import {initShare} from './lib/share';
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
@@ -15,3 +18,6 @@ if ('serviceWorker' in navigator) {
     }
   });
 }
+
+initNav();
+initShare();

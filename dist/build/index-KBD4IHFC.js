@@ -1,1 +1,0 @@
-"serviceWorker"in navigator&&window.addEventListener("load",async()=>{try{let e=await navigator.serviceWorker.register("/service-worker.js");e.onupdatefound=()=>{let n=e.installing;n.onstatechange=()=>{n.state==="installed"&&window.dispatchEvent(new Event("swUpdate"))}}}catch{console.warn("No service worker registered")}});
