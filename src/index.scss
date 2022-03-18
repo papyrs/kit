@@ -1,4 +1,5 @@
 @use "./themes/mixins/overlay";
+@use "./themes/mixins/share";
 
 @import "./themes/fonts.scss";
 @import "./themes/theme.scss";
@@ -27,4 +28,8 @@ div.popover {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+web-social-share {
+  @include share.websocialshare;
 }

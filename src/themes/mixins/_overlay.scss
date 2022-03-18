@@ -1,5 +1,5 @@
-@use "./interaction";
-@use "./shadow";
+@use './interaction';
+@use './shadow';
 
 @mixin popover {
   position: fixed;
