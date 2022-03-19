@@ -3,8 +3,6 @@
   grid-auto-flow: row dense;
   grid-gap: 0.75rem;
 
-  margin: 0 2.45em 2.45em;
-
   grid-template-columns: repeat(3, calc((100% - (2 * 0.75rem)) / 3));
 
   @media (min-width: 1200px) {

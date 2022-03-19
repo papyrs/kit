@@ -1,10 +1,10 @@
-@use './mixins/shadow';
+@use "./mixins/shadow";
 
 input,
 textarea {
   @include shadow.strong;
 
-  margin: 0.45rem 0;
+  margin: 0.45rem 0 1rem;
   padding: 0.25rem 0.45rem;
 
   outline: none;

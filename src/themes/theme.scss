@@ -89,8 +89,8 @@ strong {
   font-weight: bold;
 }
 mark {
-  background: rgba(var(--color-quartenary-rgb), 0.8);
-  color: var(--color-quartenary-contrast);
+  background: rgba(var(--color-primary-rgb), 0.8);
+  color: var(--color-primary-contrast);
   padding: 0 0.25rem;
   margin: 0 0.25rem 0 0;
   box-shadow: 2px 2px black;
@@ -137,4 +137,11 @@ textarea {
 form {
   padding: 0;
   margin: 0 0 1.45rem;
+}
+ul {
+  list-style-type: square;
+}
+p {
+  padding: 0;
+  margin: 0 0 1.25rem;
 }

@@ -1,0 +1,4 @@
+@mixin width {
+  width: calc(100vw - 1.25rem);
+  max-width: 960px;
+}

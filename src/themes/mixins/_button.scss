@@ -1,5 +1,5 @@
-@use './shadow';
-@use './text';
+@use "./shadow";
+@use "./text";
 
 @mixin primary {
   outline: 0;
@@ -25,8 +25,10 @@
   @include shadow.strong;
 
   &:disabled {
-    background: var(--color-primary);
-    color: var(--color-primary-contrast);
+    box-shadow: 3px 3px rgb(0, 0, 0, 0.4);
+    border: 1px solid rgb(0, 0, 0, 0.4);
+    color: rgb(0, 0, 0, 0.4);
+    pointer-events: none;
   }
 
   &:active {
@@ -36,8 +38,8 @@
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background: rgba(var(--color-quartenary-rgb), 0.4);
-    color: var(--color-quartenary-contrast);
+    background: rgba(var(--color-primary-rgb), 0.4);
+    color: var(--color-primary-contrast);
   }
 }
 
@@ -51,7 +53,7 @@
 
   svg {
     margin: 0 0.75rem 0 0;
-    border: 1px solid var(--color-quartenary);
+    border: 1px solid var(--color-primary);
     padding: 0.45rem;
     width: 2.45rem;
     height: 2.45rem;
@@ -79,8 +81,8 @@
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background: var(--color-quaternary-opaque);
-    color: var(--color-quaternary-opaque-contrast);
+    background: var(--color-primary-opaque);
+    color: var(--color-primary-opaque-contrast);
   }
 
   span {

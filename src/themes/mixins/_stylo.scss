@@ -2,10 +2,10 @@
   --stylo-box-shadow: 3px 3px black;
   --stylo-border: 1px solid black;
   --stylo-toolbar-button-color-active: var(--color-highlight);
-  --stylo-list-background-active: rgba(var(--color-quartenary-rgb), 0.4);
+  --stylo-list-background-active: rgba(var(--color-primary-rgb), 0.4);
   --stylo-toolbar-border-radius: 0;
 
-  --stylo-add-left: 0.75rem;
+  --stylo-add-left: 0.35rem;
 
   @media (min-width: 768px) {
     --stylo-add-left: 1.75rem;

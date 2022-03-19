@@ -20,10 +20,9 @@ h4,
 h5 {
   font-weight: 700;
   line-height: var(--line-height-title);
-  margin: 0 0 calc(var(--padding) / 3);
+  margin: 0 0 var(--padding);
 }
 
-a,
 input,
 button,
 select,

@@ -1,3 +1,5 @@
+@use "./mixins/section";
+
 main {
   padding: var(--nav-height) 0 1.45rem;
   min-height: 100vh;
@@ -9,12 +11,13 @@ main {
 
 section,
 header {
-  margin: 2.45em;
+  margin: 1.45rem auto;
+  @include section.width;
 }
 
 nav {
   padding: 0 0.45rem;
-  margin: 0;
+  margin: 0 1rem;
 
   position: fixed;
 

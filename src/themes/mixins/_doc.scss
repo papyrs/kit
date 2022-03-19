@@ -1,11 +1,17 @@
-@use './shadow';
+@use "./shadow";
+@use "./section";
 
 @mixin article {
   @include shadow.strong;
 
-  width: calc(100vw - 1.25rem);
-  max-width: 960px;
-  aspect-ratio: 210 / 297;
+  @include section.width;
+
+  min-height: calc(100vh - var(--nav-height) - 1.45rem);
+
+  @media (min-width: 576px) {
+    aspect-ratio: 210 / 297;
+    min-height: auto;
+  }
 
   padding: 1.75rem;
   margin: 0.75rem auto;
@@ -21,12 +27,38 @@
 
   font-size: 125%;
 
-  deckgo-lazy-img {
+  :global(deckgo-lazy-img) {
     display: block;
   }
 
-  deckgo-highlight-code {
-    @include shadow.shadow;
-    --deckgo-highlight-code-carbon-toolbar-display: none;
+  :global(hr) {
+    height: 4em;
+    margin: 0 auto;
+    overflow: visible;
+    position: relative;
+    display: block;
+    border: none;
+    outline: none;
+  }
+
+  :global(hr:before) {
+    content: "▪▪▪";
+    display: inline-block;
+    color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 0.6em;
+    letter-spacing: 0.6em;
+  }
+
+  :global(h1:first-child) {
+    line-height: var(--line-height-standard);
+
+    @media (min-width: 768px) {
+      font-size: calc(2 * var(--font-size-h1));
+      margin-bottom: 1.45rem;
+    }
   }
 }
