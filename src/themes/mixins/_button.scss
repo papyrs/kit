@@ -90,3 +90,25 @@
     @include text.truncate;
   }
 }
+
+@mixin text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 0;
+  margin: var(--padding);
+
+  box-shadow: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--button-text-color, inherit);
+
+  &:hover,
+  &:focus {
+    color: var(--button-text-color, inherit);
+    background: transparent;
+    border-bottom: 1px solid var(--button-text-color, inherit);
+  }
+}

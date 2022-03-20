@@ -1,6 +1,15 @@
 @use "./interaction";
 @use "./shadow";
 
+@mixin backdrop {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+@mixin content {
+  padding: 0.45rem;
+  width: 100%;
+}
+
 @mixin popover {
   position: fixed;
   inset: 0;
@@ -11,7 +20,7 @@
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.15);
+    @include backdrop;
 
     @include interaction.tappable;
   }

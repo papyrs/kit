@@ -14,4 +14,8 @@ button {
   &.toolbar {
     @include button.toolbar;
   }
+
+  &.text {
+    @include button.text;
+  }
 }

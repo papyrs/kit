@@ -1,4 +1,10 @@
 body {
   background: var(--color-tertiary);
   color: var(--color-tertiary-contrast);
+
+  &.backdrop-modal,
+  &.backdrop-popover,
+  &.backdrop-busy {
+    overflow: hidden;
+  }
 }
