@@ -34,3 +34,12 @@ div.popover {
 web-social-share {
   @include share.websocialshare;
 }
+
+main.overview section {
+  img:first-child {
+    max-width: 100px;
+    border: 1px solid black;
+    box-shadow: 3px 3px black;
+    margin: 0.75rem 0;
+  }
+}
