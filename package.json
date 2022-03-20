@@ -6,9 +6,10 @@
   "scripts": {
     "build:js": "node ./build.js",
     "build:sw": "node ./build-sw.js",
+    "build:kit": "node build-kit.mjs",
     "sync:scss": "node ./copy-scss.js",
     "copy": "node ./copy.js",
-    "build": "npm run build:js && npm run copy && npm run build:sw",
+    "build": "npm run build:js && npm run copy && npm run build:sw && npm run build:kit",
     "format": "prettier --write ."
   },
   "author": "David Dal Busco",
