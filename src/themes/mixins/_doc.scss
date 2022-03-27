@@ -62,3 +62,9 @@
     }
   }
 }
+
+@mixin placeholder {
+  :global(figcaption:empty:not(:focus):after) {
+    content: "Type caption for image (optional)";
+  }
+}
