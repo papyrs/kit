@@ -54,7 +54,7 @@
   }
 
   :global(h1:first-child) {
-    line-height: var(--line-height-standard);
+    line-height: calc(var(--line-height-standard) - 0.1);
 
     @media (min-width: 768px) {
       font-size: calc(2 * var(--font-size-h1));

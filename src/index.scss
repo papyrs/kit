@@ -1,6 +1,7 @@
 @use "./themes/mixins/overlay";
 @use "./themes/mixins/share";
 
+@import "./themes/font-faces-cdn.scss";
 @import "./themes/fonts.scss";
 @import "./themes/theme.scss";
 @import "./themes/main.scss";
