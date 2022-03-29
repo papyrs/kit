@@ -1,5 +1,6 @@
 import {initNav} from './lib/nav';
 import {initShare} from './lib/share';
+import './lib/cdn';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
