@@ -1,7 +1,13 @@
-body {
-  background: var(--color-tertiary);
-  color: var(--color-tertiary-contrast);
+:root {
+  background: var(--color-theme);
+  color: var(--color-theme-contrast);
 
+  &[theme] {
+    transition: background 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+  }
+}
+
+body {
   &.backdrop-modal,
   &.backdrop-popover,
   &.backdrop-busy {

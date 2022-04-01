@@ -10,6 +10,21 @@
 
   /** Colors */
 
+  --color-highlight: #ef476f;
+  --color-highlight-rgb: 239, 71, 111;
+  --color-highlight-contrast: #ffffff;
+  --color-highlight-contrast-rgb: 255, 255, 255;
+  --color-highlight-shade: #d23e62;
+  --color-highlight-tint: #f1597d;
+
+  /** Default: papaya-whip */
+  --color-theme: #ffeed6;
+  --color-theme-rgb: 255, 238, 214;
+  --color-theme-contrast: #000000;
+  --color-theme-contrast-rgb: 0, 0, 0;
+  --color-theme-shade: #e0d1bc;
+  --color-theme-tint: #fff0da;
+
   --color-primary: #fde74c;
   --color-primary-rgb: 253, 231, 76;
   --color-primary-contrast: #000000;
@@ -24,17 +39,39 @@
   --color-primary-opaque-shade: #e0d8a5;
   --color-primary-opaque-tint: #fff7c3;
 
-  --color-tertiary: #ffeed6;
-  --color-tertiary-rgb: 255, 238, 214;
-  --color-tertiary-contrast: #000000;
-  --color-tertiary-contrast-rgb: 0, 0, 0;
-  --color-tertiary-shade: #e0d1bc;
-  --color-tertiary-tint: #fff0da;
+  &[theme="aero-blue"] {
+    --color-theme: #d5ffef;
+    --color-theme-rgb: 213, 255, 239;
+    --color-theme-contrast: #000000;
+    --color-theme-contrast-rgb: 0, 0, 0;
+    --color-theme-shade: #bbe0d2;
+    --color-theme-tint: #d9fff1;
+  }
 
-  --color-highlight: #ef476f;
-  --color-highlight-rgb: 239, 71, 111;
-  --color-highlight-contrast: #ffffff;
-  --color-highlight-contrast-rgb: 255, 255, 255;
-  --color-highlight-shade: #d23e62;
-  --color-highlight-tint: #f1597d;
+  &[theme="lavender-blue"] {
+    --color-theme: #c4cdff;
+    --color-theme-rgb: 196, 205, 255;
+    --color-theme-contrast: #000000;
+    --color-theme-contrast-rgb: 0, 0, 0;
+    --color-theme-shade: #acb4e0;
+    --color-theme-tint: #cad2ff;
+  }
+
+  &[theme="pink-lace"] {
+    --color-theme: #ffd5f7;
+    --color-theme-rgb: 255, 213, 247;
+    --color-theme-contrast: #000000;
+    --color-theme-contrast-rgb: 0, 0, 0;
+    --color-theme-shade: #e0bbd9;
+    --color-theme-tint: #ffd9f8;
+  }
+
+  &[theme="baby-pink"] {
+    --color-theme: #ffcece;
+    --color-theme-rgb: 255, 206, 206;
+    --color-theme-contrast: #000000;
+    --color-theme-contrast-rgb: 0, 0, 0;
+    --color-theme-shade: #e0b5b5;
+    --color-theme-tint: #ffd3d3;
+  }
 }
