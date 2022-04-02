@@ -6,7 +6,7 @@
 }
 
 @mixin content {
-  padding: 0.45rem;
+  padding: 0 1rem;
   width: 100%;
 }
 
@@ -36,15 +36,17 @@
       transform: translate(-50%, -50%);
     }
 
-    --size: min(300px, calc(100vw - 0.45rem));
+    --size: min(240px, calc(100vw - 0.45rem));
 
     min-width: var(--size);
     max-width: var(--size);
 
-    @include shadow.strong;
+    @include shadow.extra-strong;
 
     width: fit-content;
     height: fit-content;
+
+    padding: 0.75rem 0;
 
     overflow: hidden;
 

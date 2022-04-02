@@ -6,5 +6,12 @@
 
 @mixin shadow {
   box-shadow: 3px 3px black;
-  border: 1px solid black;
+  border: 2px solid black;
+}
+
+@mixin extra-strong {
+  box-shadow: 4px 4px black;
+  border: 2px solid black;
+  background: white;
+  color: black;
 }

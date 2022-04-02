@@ -49,15 +49,24 @@
   border: none;
   margin: 0;
   justify-content: flex-start;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 1rem;
 
   svg {
-    margin: 0 0.75rem 0 0;
-    border: 1px solid var(--color-primary);
-    padding: 0.45rem;
-    width: 2.45rem;
-    height: 2.45rem;
+    margin: 0.45rem 1.25rem 0.45rem 0.45rem;
+    width: 1.25rem;
+    height: 1.25rem;
     background: white;
+  }
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    background: inherit;
+    color: inherit;
+
+    span {
+      background: rgba(var(--color-primary-rgb), 0.4);
+      color: var(--color-primary-contrast);
+    }
   }
 }
 
@@ -81,8 +90,8 @@
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
-    background: var(--color-primary-opaque);
-    color: var(--color-primary-opaque-contrast);
+    background: var(--color-primary);
+    color: var(--color-primary-contrast);
   }
 
   span {
