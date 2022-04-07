@@ -7,7 +7,7 @@ const swDest = 'dist/service-worker.js';
 generateSW({
   globDirectory: './dist',
   globPatterns: ['**/*'],
-  globIgnores: ['**/doc.html'],
+  globIgnores: ['**/d/index.html'],
   swDest,
   sourcemap: false,
   mode: 'production',
