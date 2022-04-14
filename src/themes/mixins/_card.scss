@@ -1,0 +1,34 @@
+@use "./interaction";
+@use "./shadow";
+@use "./text";
+
+@mixin card($tappable) {
+  padding: 0.75rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include shadow.strong;
+
+  @if $tappable {
+    @include interaction.tappable;
+  }
+
+  h3 {
+    line-height: var(--line-height-standard);
+    margin: 0 0 0.45rem;
+
+    @include text.clamp(2);
+  }
+
+  p {
+    font-size: var(--font-size-very-small);
+    margin: 0;
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

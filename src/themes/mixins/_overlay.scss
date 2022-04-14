@@ -1,8 +1,12 @@
 @use "./interaction";
 @use "./shadow";
 
-@mixin backdrop {
-  background: rgba(0, 0, 0, 0.15);
+@mixin backdrop($color) {
+  @if $color == "dark" {
+    background: rgba(0, 0, 0, 0.9);
+  } @else {
+    background: rgba(0, 0, 0, 0.15);
+  }
 }
 
 @mixin content {
@@ -20,7 +24,7 @@
     position: absolute;
     inset: 0;
 
-    @include backdrop;
+    @include backdrop("light");
 
     @include interaction.tappable;
   }
@@ -44,13 +48,11 @@
     @include shadow.extra-strong;
 
     width: fit-content;
-    height: fit-content;
+    height: auto;
 
     padding: 0.75rem 0;
 
     overflow: hidden;
-
-    user-select: none;
 
     display: flex;
     flex-direction: column;

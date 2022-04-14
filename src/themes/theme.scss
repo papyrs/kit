@@ -4,7 +4,7 @@ html {
 }
 body {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 100%;
 
   margin: 0;
@@ -73,7 +73,7 @@ a {
 }
 a:active,
 a:hover {
-  color: var(--color-highlight);
+  color: var(--color-secondary);
   outline-width: 0;
 }
 a:hover,
@@ -153,4 +153,24 @@ figcaption {
   margin: 0.25rem 0.75rem 1rem;
   text-align: center;
   outline: none;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: var(--color-primary);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: none;
 }

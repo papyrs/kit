@@ -12,7 +12,7 @@ textarea {
   transition: box-shadow 0.15s ease-out;
 
   &:focus {
-    box-shadow: 3px 3px var(--color-highlight);
+    box-shadow: 3px 3px var(--color-secondary);
   }
 }
 
