@@ -1,5 +1,6 @@
 @use "./themes/mixins/overlay";
 @use "./themes/mixins/share";
+@use "./themes/mixins/button";
 
 @import "./themes/font-faces-cdn.scss";
 @import "./themes/fonts.scss";
@@ -43,5 +44,15 @@ main.overview section {
     border: 1px solid black;
     box-shadow: 3px 3px black;
     margin: 0.75rem 0;
+  }
+}
+
+div.watermark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    @include button.primary;
   }
 }

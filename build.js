@@ -89,10 +89,12 @@ const buildHTML = async ({srcPath, destPath, scripts, cssPaths}) => {
 
   const head = await minify(await readFile('src/templates/head.html', 'utf8'), minifyOptions);
   const nav = await minify(await readFile('src/templates/nav.html', 'utf8'), minifyOptions);
+  const watermark = await minify(await readFile('src/templates/watermark.html', 'utf8'), minifyOptions);
 
   const html = (await minify(src, minifyOptions))
     .replace('<!-- DECKDECKGO_HEAD -->', head)
     .replace('<!-- DECKDECKGO_NAV -->', nav)
+      .replace('<!-- DECKDECKGO_WATERMARK -->', watermark)
     .replace('<!-- DECKDECKGO_WEB_SOCIAL_SHARE -->', webSocialShare)
     .replace('{{DECKDECKGO_EXTRA_SHAS}}', scripts.map(({sha256}) => sha256).join(' '))
     .replace(
