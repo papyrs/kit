@@ -1,6 +1,9 @@
 @use "./themes/mixins/overlay";
 @use "./themes/mixins/share";
 @use "./themes/mixins/button";
+@use "./themes/mixins/grid";
+@use "./themes/mixins/card";
+@use "./themes/mixins/text";
 
 @import "./themes/font-faces-cdn.scss";
 @import "./themes/fonts.scss";
@@ -55,5 +58,28 @@ div.watermark {
 
   a {
     @include button.primary;
+  }
+}
+
+section.grid {
+  @include grid.posts;
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  article {
+    @include card.card(true);
+
+    p.description {
+      margin: 0 0 0.75rem;
+      @include text.clamp(5);
+    }
   }
 }

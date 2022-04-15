@@ -13,6 +13,17 @@
 
   @if $tappable {
     @include interaction.tappable;
+
+    &:hover:not(:focus-within),
+    &:focus:not(:focus-within) {
+      background: rgba(var(--color-primary-rgb), 0.4);
+      color: var(--color-primary-contrast);
+    }
+
+    &:active:not(:focus-within) {
+      box-shadow: none;
+      transform: translateX(3px) translateY(3px);
+    }
   }
 
   h3 {
