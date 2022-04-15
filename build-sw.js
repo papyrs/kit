@@ -12,6 +12,8 @@ generateSW({
   sourcemap: false,
   mode: 'production',
   ignoreURLParametersMatching: [/./],
+  skipWaiting: true,
+  clientsClaim: true,
   runtimeCaching: [
     {
       urlPattern: new RegExp(
