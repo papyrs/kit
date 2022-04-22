@@ -34,6 +34,7 @@
 
     @media (min-width: 768px) {
       @include text.clamp(2);
+      white-space: inherit;
     }
   }
 
