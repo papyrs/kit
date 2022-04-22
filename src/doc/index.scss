@@ -3,3 +3,7 @@
 article.deckgo-doc {
   @include doc.article;
 }
+
+:root {
+  @include doc.paragraphs;
+}
