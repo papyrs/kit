@@ -28,6 +28,20 @@
   font-size: 125%;
 }
 
+@mixin spacing {
+  > * {
+    margin: 0 auto 1.75rem;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  deckgo-highlight-code {
+    margin: 2rem auto;
+  }
+}
+
 @mixin paragraphs {
   deckgo-highlight-code {
     --deckgo-highlight-code-token-atrule: var(--color-primary-opaque);
@@ -68,7 +82,6 @@
 
     @media (min-width: 768px) {
       font-size: calc(2 * var(--font-size-h1));
-      margin-bottom: 1.45rem;
     }
   }
 }

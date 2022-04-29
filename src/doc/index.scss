@@ -6,4 +6,5 @@ article.deckgo-doc {
 
 :root {
   @include doc.paragraphs;
+  @include doc.spacing;
 }
