@@ -27,7 +27,6 @@
   }
 
   h3 {
-    line-height: var(--line-height-standard);
     margin: 0 0 0.45rem;
 
     @include text.truncate;

@@ -55,6 +55,7 @@
     --deckgo-highlight-code-token-punctuation: var(--color-theme);
     --deckgo-highlight-code-token-selector: var(--color-primary);
     --deckgo-highlight-code-token-regex: var(--color-primary);
+    --deckgo-highlight-code-line-height: var(--line-height-title);
   }
 
   hr {
@@ -80,8 +81,6 @@
   }
 
   h1:first-child {
-    line-height: calc(var(--line-height-standard) - 0.1);
-
     @media (min-width: 768px) {
       font-size: calc(2 * var(--font-size-h1));
     }
