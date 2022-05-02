@@ -13,7 +13,6 @@ const postcssPresetEnv = require('postcss-preset-env');
 const buildScript = async () => {
   const {metafile} = esbuild.buildSync({
     entryPoints: ['src/index.js'],
-    entryNames: '[dir]/[name]-[hash]',
     bundle: true,
     minify: true,
     format: 'esm',
@@ -44,7 +43,6 @@ const scriptSha256 = async (scriptPath) => {
 const buildCSS = async () => {
   const {metafile} = await esbuild.build({
     entryPoints: ['src/index.scss', 'src/doc/index.scss'],
-    entryNames: '[dir]/[name]-[hash]',
     bundle: true,
     minify: true,
     format: 'esm',
