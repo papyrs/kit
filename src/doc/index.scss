@@ -2,9 +2,9 @@
 
 article.deckgo-doc {
   @include doc.article;
+  @include doc.spacing;
 }
 
 :root {
   @include doc.paragraphs;
-  @include doc.spacing;
 }
