@@ -33,13 +33,16 @@
     margin: 0 auto 1.75rem;
   }
 
-  > h1, > h2, > h3 {
+  > h1,
+  > h2,
+  > h3 {
     &:not(:first-child) {
       margin-bottom: 0.45rem;
     }
   }
 
-  deckgo-highlight-code, figure {
+  deckgo-highlight-code,
+  figure {
     margin: 2rem auto;
   }
 }
