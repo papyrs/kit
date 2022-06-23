@@ -129,12 +129,13 @@
   box-shadow: none;
   border: 1px solid transparent;
   background: transparent;
-  color: var(--button-text-color, inherit);
+
+  text-decoration: underline;
+  text-underline-offset: 0.025rem;
 
   &:hover,
   &:focus {
-    color: var(--button-text-color, inherit);
     background: transparent;
-    border-bottom: 1px solid var(--button-text-color, inherit);
+    color: var(--color-secondary);
   }
 }
