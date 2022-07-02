@@ -42,7 +42,7 @@ web-social-share {
 }
 
 main.overview section {
-  img:first-child {
+  > img:first-child {
     max-width: 100px;
     border: 1px solid black;
     box-shadow: 3px 3px black;
