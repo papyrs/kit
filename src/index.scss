@@ -41,12 +41,25 @@ web-social-share {
   @include share.websocialshare;
 }
 
-main.overview section {
+main.overview section.bio {
   > img:first-child {
     max-width: 100px;
     border: 1px solid black;
     box-shadow: 3px 3px black;
     margin: 0.75rem 0;
+  }
+
+  > div {
+    display: flex;
+    justify-content: center;
+
+    a {
+      --deckgo-lazy-img-height: 1.45rem;
+      --deckgo-lazy-img-width: 1.45rem;
+      display: inline-block;
+      vertical-align: bottom;
+      margin: 0 0.45rem;
+    }
   }
 }
 
