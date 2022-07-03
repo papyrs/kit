@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-const esbuild = require('esbuild');
-const {readFile, writeFile, mkdir, rm} = require('fs').promises;
-const minify = require('html-minifier-terser').minify;
-const crypto = require('crypto');
+import esbuild  from 'esbuild';
+import {readFile, writeFile, mkdir, rm}  from 'fs/promises';
+import {minify}  from 'html-minifier-terser';
+import crypto  from 'crypto';
 
-const {sassPlugin} = require('esbuild-sass-plugin');
-const postcss = require('postcss');
-const autoprefixer = require('autoprefixer');
-const postcssPresetEnv = require('postcss-preset-env');
+import {sassPlugin}  from 'esbuild-sass-plugin';
+import postcss  from 'postcss';
+import autoprefixer  from 'autoprefixer';
+import postcssPresetEnv  from 'postcss-preset-env';
 
 const buildScript = async () => {
   const {metafile} = esbuild.buildSync({

@@ -4,7 +4,7 @@
   "description": "The templates for the blog deployed on the Internet Computer with Papyrs",
   "main": "index.js",
   "scripts": {
-    "build:js": "node ./build.js",
+    "build:js": "node build.mjs",
     "build:sw": "node ./build-sw.js",
     "build:kit": "node build-kit.mjs",
     "sync:scss": "node ./copy-scss.js",
