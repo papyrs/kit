@@ -104,3 +104,18 @@ section.grid {
     }
   }
 }
+
+main {
+  @supports (-webkit-touch-callout: none) {
+    height: -webkit-fill-available;
+    padding: 0;
+
+    > *:first-of-type {
+      margin-top: var(--nav-height);
+    }
+
+    > *:last-of-type {
+      margin-bottom: 1.45rem;
+    }
+  }
+}
