@@ -110,12 +110,12 @@ main {
     height: -webkit-fill-available;
     padding: 0;
 
-    > *:first-of-type {
+    > *:first-of-type, > article.deckgo-doc {
       margin-top: var(--nav-height);
     }
 
     > *:last-of-type {
-      margin-bottom: 1.45rem;
+      margin-bottom: 2rem;
     }
   }
 }
