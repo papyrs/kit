@@ -90,6 +90,8 @@ section.grid {
   article {
     @include card.card(true);
 
+    height: 100%;
+
     p.description {
       margin: 0 0 0.75rem;
       @include text.clamp(5);
