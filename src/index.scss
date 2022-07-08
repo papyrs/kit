@@ -96,5 +96,11 @@ section.grid {
       margin: 0 0 0.75rem;
       @include text.clamp(5);
     }
+
+    div:last-of-type {
+      p {
+        font-size: var(--font-size-ultra-small);
+      }
+    }
   }
 }
