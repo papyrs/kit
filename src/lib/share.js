@@ -28,6 +28,21 @@ const shareDesktop = () => {
         }
       },
       {
+        telegram: {
+          socialShareUrl: shareUrl
+        }
+      },
+      {
+        openchat: {
+          socialShareUrl: shareUrl
+        }
+      },
+      {
+        hackernews: {
+          socialShareUrl: shareUrl
+        }
+      },
+      {
         linkedin: {
           socialShareUrl: shareUrl
         }
@@ -38,22 +53,7 @@ const shareDesktop = () => {
         }
       },
       {
-        whatsapp: {
-          socialShareUrl: shareUrl
-        }
-      },
-      {
         copy: {
-          socialShareUrl: shareUrl
-        }
-      },
-      {
-        hackernews: {
-          socialShareUrl: shareUrl
-        }
-      },
-      {
-        telegram: {
           socialShareUrl: shareUrl
         }
       }
