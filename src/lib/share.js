@@ -38,12 +38,17 @@ const shareDesktop = () => {
         }
       },
       {
-        hackernews: {
+        linkedin: {
           socialShareUrl: shareUrl
         }
       },
       {
-        linkedin: {
+        dscvr: {
+          socialShareUrl: shareUrl
+        }
+      },
+      {
+        hackernews: {
           socialShareUrl: shareUrl
         }
       },
