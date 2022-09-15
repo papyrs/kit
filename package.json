@@ -1,16 +1,17 @@
 {
   "name": "@papyrs/kit",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "The templates for the blog deployed on the Internet Computer with Papyrs",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "build:js": "node build.mjs",
+    "dev": "astro dev",
+    "start": "astro dev",
     "build:sw": "node ./build-sw.js",
     "build:kit": "node build-kit.mjs",
-    "sync:scss": "node ./copy-scss.js",
-    "copy": "node ./copy.js",
-    "build": "npm run build:js && npm run copy && npm run build:sw && npm run build:kit",
-    "format": "prettier --write ."
+    "build": "astro build && npm run build:sw && npm run build:kit",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write --plugin-search-dir=. ."
   },
   "author": "David Dal Busco",
   "license": "MIT",
@@ -20,12 +21,15 @@
   "homepage": "https://papy.rs",
   "devDependencies": {
     "autoprefixer": "^10.4.4",
-    "esbuild": "^0.14.38",
-    "esbuild-sass-plugin": "^2.2.6",
-    "html-minifier-terser": "^6.1.0",
-    "postcss": "^8.4.12",
-    "postcss-preset-env": "^7.4.3",
-    "prettier": "^2.6.2",
+    "astro": "^1.2.1",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.5.4",
+    "sass": "^1.54.9",
     "workbox-build": "^6.5.3"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^1.0.0",
+    "@papyrs/ui": "^0.0.1",
+    "svelte": "^3.50.1"
   }
 }

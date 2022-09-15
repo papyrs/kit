@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Head from "../components/Head.astro";
+---
+
+<Layout>
+  <Head slot="head">
+    <title>%%DECKDECKGO_AUTHOR%% - Blog</title>
+
+    <meta
+      name="description"
+      content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"
+    />
+
+    <meta property="og:title" content="{{DECKDECKGO_AUTHOR}} - Blog" />
+    <meta
+      property="og:description"
+      content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"
+    />
+    <meta property="og:site_name" content="{{DECKDECKGO_AUTHOR}} - Blog" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://cnd.papy.rs/images/social-image.jpg"
+    />
+
+    <meta name="twitter:title" content="{{DECKDECKGO_AUTHOR}} - Blog" />
+    <meta
+      name="twitter:description"
+      content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"
+    />
+    <meta
+      name="twitter:image:src"
+      content="https://cdn.papy.rs/assets/images/social-image.jpg"
+    />
+  </Head>
+
+  <main class="overview">
+    <section class="bio">
+      <!-- DECKDECKGO_PHOTO_URL -->
+
+      <h1>
+        <!-- DECKDECKGO_AUTHOR -->
+      </h1>
+
+      <p><!-- DECKDECKGO_BIO --></p>
+
+      <div><!-- DECKDECKGO_SOCIAL_LINKS --></div>
+    </section>
+
+    <section id="posts" class="grid">
+      <!-- DECKDECKGO_DATA -->
+    </section>
+  </main>
+</Layout>
+
+<style lang="scss">
+  .bio {
+    > img:first-child {
+      max-width: 100px;
+      border: 1px solid black;
+      box-shadow: 3px 3px black;
+      margin: 0.75rem 0;
+    }
+
+    > div {
+      display: flex;
+      justify-content: center;
+
+      a {
+        --deckgo-lazy-img-height: 1.45rem;
+        --deckgo-lazy-img-width: 1.45rem;
+        display: inline-block;
+        vertical-align: bottom;
+        margin: 0 0.45rem;
+      }
+    }
+  }
+</style>

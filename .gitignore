@@ -31,3 +31,12 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+.idea
