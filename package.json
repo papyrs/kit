@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build:sw": "node ./build-sw.js",
     "build:kit": "node build-kit.mjs",
-    "build": "astro build && npm run build:sw && npm run build:kit",
+    "build:csp": "node build-csp.mjs",
+    "build": "astro build && npm run build:sw && npm run build:kit && npm run build:csp",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write --plugin-search-dir=. ."

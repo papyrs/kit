@@ -4,7 +4,7 @@ import fs from 'fs';
 import {join, extname} from 'path';
 import {writeFile} from 'fs/promises';
 
-const findEntryPoints = (dir, files) => {
+export const findEntryPoints = (dir, files) => {
   fs.readdirSync(dir).forEach((file) => {
     const fullPath = join(dir, file);
     if (fs.lstatSync(fullPath).isDirectory()) {
