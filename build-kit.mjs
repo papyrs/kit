@@ -26,7 +26,7 @@ const toEntry = (entry) => {
 
   return {
     fullPath: entry.replace("dist/", ""),
-    sha2566: createHash("sha256").update(content).digest("base64"),
+    sha256: createHash("sha256").update(content).digest("base64"),
   };
 };
 
