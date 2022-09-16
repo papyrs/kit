@@ -35,4 +35,20 @@ const { lang = "en" } = Astro.props;
   @import "@papyrs/ui/styles/global/input.scss";
   @import "@papyrs/ui/styles/global/link.scss";
   @import "@papyrs/ui/styles/global/theme.scss";
+
+  main {
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available;
+      padding: 0;
+
+      > *:first-of-type,
+      > article.deckgo-doc {
+        margin-top: var(--nav-height);
+      }
+
+      > *:last-of-type {
+        margin-bottom: 2rem;
+      }
+    }
+  }
 </style>

@@ -55,6 +55,10 @@ import Head from "../components/Head.astro";
 </Layout>
 
 <style lang="scss">
+  @use "../node_modules/@papyrs/ui/styles/mixins/grid";
+  @use "../node_modules/@papyrs/ui/styles/mixins/card";
+  @use "../node_modules/@papyrs/ui/styles/mixins/text";
+
   .bio {
     > img:first-child {
       max-width: 100px;
@@ -73,6 +77,37 @@ import Head from "../components/Head.astro";
         display: inline-block;
         vertical-align: bottom;
         margin: 0 0.45rem;
+      }
+    }
+  }
+
+  .grid {
+    @include grid.posts;
+
+    a {
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    article {
+      @include card.card(true);
+
+      height: 100%;
+
+      p.description {
+        margin: 0 0 0.75rem;
+        @include text.clamp(5);
+      }
+
+      div:last-of-type {
+        p {
+          font-size: var(--font-size-ultra-small);
+        }
       }
     }
   }
