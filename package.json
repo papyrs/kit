@@ -21,12 +21,12 @@
   },
   "homepage": "https://papy.rs",
   "devDependencies": {
-    "autoprefixer": "^10.4.4",
-    "astro": "^1.2.1",
+    "autoprefixer": "^10.4.11",
+    "astro": "^1.2.5",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",
     "sass": "^1.54.9",
-    "workbox-build": "^6.5.3"
+    "workbox-build": "^6.5.4"
   },
   "dependencies": {
     "@astrojs/svelte": "^1.0.0",
