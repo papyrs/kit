@@ -55,10 +55,6 @@ import Head from "../components/Head.astro";
 </Layout>
 
 <style lang="scss">
-  @use "../node_modules/@papyrs/ui/styles/mixins/grid";
-  @use "../node_modules/@papyrs/ui/styles/mixins/card";
-  @use "../node_modules/@papyrs/ui/styles/mixins/text";
-
   .bio {
     > img:first-child {
       max-width: 100px;
@@ -80,8 +76,14 @@ import Head from "../components/Head.astro";
       }
     }
   }
+</style>
 
-  :global(.grid) {
+<style lang="scss" is:global>
+  @use "../node_modules/@papyrs/ui/styles/mixins/grid";
+  @use "../node_modules/@papyrs/ui/styles/mixins/card";
+  @use "../node_modules/@papyrs/ui/styles/mixins/text";
+
+  .grid {
     @include grid.posts;
 
     a {
