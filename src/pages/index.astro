@@ -81,7 +81,7 @@ import Head from "../components/Head.astro";
     }
   }
 
-  .grid {
+  :global(.grid) {
     @include grid.posts;
 
     a {
@@ -94,7 +94,7 @@ import Head from "../components/Head.astro";
       }
     }
 
-    :global(article) {
+    article {
       @include card.card(true);
 
       height: 100%;
