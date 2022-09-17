@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-import fs, { readFileSync } from "fs";
+import { readdirSync, readFileSync, lstatSync } from "fs";
 import { join, extname } from "path";
 import { writeFile } from "fs/promises";
 import { createHash } from "crypto";
 
 export const findEntryPoints = (dir, files) => {
-  fs.readdirSync(dir).forEach((file) => {
+  readdirSync(dir).forEach((file) => {
     const fullPath = join(dir, file);
-    if (fs.lstatSync(fullPath).isDirectory()) {
+    if (lstatSync(fullPath).isDirectory()) {
       findEntryPoints(fullPath, files);
     } else {
       files.push(fullPath);

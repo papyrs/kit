@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import { findEntryPoints } from "./build-kit.mjs";
-import { extname, join, basename } from "path";
-import { readFileSync } from "fs";
+import { extname, join } from "path";
 import { createHash } from "crypto";
 import { writeFile, readFile } from "fs/promises";
 
@@ -13,15 +12,7 @@ const htmlEntryPoints = entryPoints.filter((entry) =>
   [".html"].includes(extname(entry))
 );
 
-const indexHtmlEntryPoints = entryPoints.filter(
-  (entry) =>
-    ["index.html"].includes(basename(entry))
-);
-
-const computeHashes = (entry) => {
-  console.log(entry);
-
-  const indexHtml = readFileSync(join(process.cwd(), entry), "utf-8");
+const computeHashes = (indexHtml) => {
   const sw = /<script[\s\S]*?>([\s\S]*?)<\/script>/gm;
 
   const scriptHashes = [];
@@ -38,25 +29,21 @@ const computeHashes = (entry) => {
   return scriptHashes;
 };
 
-const scriptHashes = htmlEntryPoints.reduce(
-  (acc, entry) => [...acc, ...computeHashes(entry)],
-  []
-);
-
-const updateCSP = async ({ scriptHashes, entry }) => {
-  const indexHtml = await readFile(join(process.cwd(), entry), "utf-8");
-
-  await writeFile(
+const writeCSP = async ({ scriptHashes, indexHtml, entry }) =>
+  writeFile(
     entry,
     indexHtml.replace(
       "{{DECKDECKGO_EXTRA_SHAS}}",
-      scriptHashes.map((sha256 ) => sha256).join(" ")
+      scriptHashes.map((sha256) => sha256).join(" ")
     ),
     "utf-8"
   );
+
+const updateCSP = async (entry) => {
+  const indexHtml = await readFile(join(process.cwd(), entry), "utf-8");
+  const scriptHashes = await computeHashes(indexHtml);
+  await writeCSP({ scriptHashes, indexHtml, entry });
 };
 
-const promises = indexHtmlEntryPoints.map((entry) =>
-  updateCSP({ scriptHashes, entry })
-);
+const promises = htmlEntryPoints.map(updateCSP);
 await Promise.all(promises);
