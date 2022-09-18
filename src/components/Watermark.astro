@@ -1,0 +1,19 @@
+<div class="watermark">
+  <span><small>Made with</small></span>
+
+  <a href="https://papy.rs" rel="noopener noreferrer">Papyrs</a>
+</div>
+
+<style lang="scss">
+  @use "../../node_modules/@papyrs/ui/styles/mixins/button";
+  div.watermark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+
+    a {
+      @include button.primary;
+    }
+  }
+</style>

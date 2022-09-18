@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Head from "../../components/Head.astro";
+import Watermark from "../../components/Watermark.astro";
+---
+
+<Layout lang="{{DECKDECKGO_LANG}}">
+  <Head slot="head">
+    <title>%%DECKDECKGO_TITLE%%</title>
+
+    <meta name="description" content="{{DECKDECKGO_DESCRIPTION}}" />
+
+    <meta property="og:title" content="{{DECKDECKGO_TITLE}}" />
+    <meta property="og:description" content="{{DECKDECKGO_DESCRIPTION}}" />
+    <meta property="og:site_name" content="{{DECKDECKGO_TITLE}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{DECKDECKGO_SOCIAL_IMAGE}}" />
+
+    <meta name="twitter:title" content="{{DECKDECKGO_TITLE}}" />
+    <meta name="twitter:description" content="{{DECKDECKGO_DESCRIPTION}}" />
+    <meta name="twitter:image:src" content="{{DECKDECKGO_SOCIAL_IMAGE}}" />
+
+    <script
+      type="module"
+      src="https://cdn.papy.rs/libs/@deckdeckgo/highlight-code/4.3.0/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"
+    ></script>
+
+    <!-- DECKDECKGO_HEAD_EXTRA -->
+  </Head>
+
+  <main>
+    <!-- DECKDECKGO_DOC -->
+
+    <Watermark />
+  </main>
+</Layout>
+
+<style lang="scss" is:global>
+  @use "../../themes/mixins/doc";
+
+  article.deckgo-doc {
+    @include doc.article;
+    @include doc.spacing;
+  }
+
+  :root {
+    @include doc.paragraphs;
+  }
+</style>

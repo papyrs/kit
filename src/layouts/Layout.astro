@@ -1,0 +1,54 @@
+---
+import Nav from "../components/Nav.svelte";
+import Share from "../components/Share.astro";
+
+export interface Props {
+  lang?: string;
+}
+
+const { lang = "en" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang} theme="{{DECKDECKGO_THEME}}">
+  <slot name="head" />
+  <body>
+    <Nav client:load />
+
+    <slot />
+
+    <Share />
+
+    <noscript> Please enable Javascript to access this blog.</noscript>
+  </body>
+</html>
+
+<style lang="scss" is:global>
+  @import "../themes/global/fonts-cdn.scss";
+  @import "../themes/global/main.scss";
+
+  @import "@papyrs/ui/styles/global/variables.scss";
+  @import "@papyrs/ui/styles/global/body.scss";
+  @import "@papyrs/ui/styles/global/button.scss";
+  @import "@papyrs/ui/styles/global/fonts.scss";
+  @import "@papyrs/ui/styles/global/img.scss";
+  @import "@papyrs/ui/styles/global/input.scss";
+  @import "@papyrs/ui/styles/global/link.scss";
+  @import "@papyrs/ui/styles/global/theme.scss";
+
+  main {
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available;
+      padding: 0;
+
+      > *:first-of-type,
+      > article.deckgo-doc {
+        margin-top: var(--nav-height);
+      }
+
+      > *:last-of-type {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+</style>
