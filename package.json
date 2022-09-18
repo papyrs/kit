@@ -1,6 +1,6 @@
 {
   "name": "@papyrs/kit",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "description": "The templates for the blog deployed on the Internet Computer with Papyrs",
   "private": true,
   "scripts": {
