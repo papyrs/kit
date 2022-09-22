@@ -12,8 +12,7 @@
     "build": "astro build && npm run build:sw && npm run build:kit && npm run build:csp",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write --plugin-search-dir=. .",
-    "copy:mixins": "node ./copy-mixins.js"
+    "format": "prettier --write --plugin-search-dir=. ."
   },
   "author": "David Dal Busco",
   "license": "MIT",
@@ -31,7 +30,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^1.0.0",
-    "@papyrs/ui": "^0.0.1-1",
+    "@papyrs/ui": "^0.0.2",
     "svelte": "^3.50.1"
   }
 }

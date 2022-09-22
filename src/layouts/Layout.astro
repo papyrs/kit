@@ -24,8 +24,9 @@ const { lang = "en" } = Astro.props;
 </html>
 
 <style lang="scss" is:global>
-  @import "../themes/global/fonts-cdn.scss";
-  @import "../themes/global/main.scss";
+  @use "../node_modules/@papyrs/ui/styles/mixins/main";
+
+  @import "../themes/fonts-cdn.scss";
 
   @import "@papyrs/ui/styles/global/variables.scss";
   @import "@papyrs/ui/styles/global/body.scss";
@@ -35,6 +36,10 @@ const { lang = "en" } = Astro.props;
   @import "@papyrs/ui/styles/global/input.scss";
   @import "@papyrs/ui/styles/global/link.scss";
   @import "@papyrs/ui/styles/global/theme.scss";
+
+  :root {
+    @include main.layout;
+  }
 
   main {
     @supports (-webkit-touch-callout: none) {
