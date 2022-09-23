@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Head from "../../components/Head.astro";
-import Watermark from "../../components/Watermark.astro";
+import Toolbar from "../../components/Toolbar.svelte";
 ---
 
 <Layout lang="{{DECKDECKGO_LANG}}">
@@ -30,9 +30,9 @@ import Watermark from "../../components/Watermark.astro";
 
   <main>
     <!-- DECKDECKGO_DOC -->
-
-    <Watermark />
   </main>
+
+  <Toolbar client:idle />
 </Layout>
 
 <style lang="scss" is:global>

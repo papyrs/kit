@@ -13,7 +13,7 @@ const { lang = "en" } = Astro.props;
 <html lang={lang} theme="{{DECKDECKGO_THEME}}">
   <slot name="head" />
   <body>
-    <Nav client:load />
+    <Nav client:idle />
 
     <slot />
 

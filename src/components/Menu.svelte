@@ -6,8 +6,10 @@
   let visible: boolean | undefined;
   let button: HTMLButtonElement | undefined;
 
-  const {location: {pathname}} = isBrowser ? window : {location: {pathname: '/'}};
-  let hideMore = pathname === "/";
+  const {
+    location: { pathname },
+  } = isBrowser ? window : { location: { pathname: "/" } };
+  let blogRoot = pathname === "/";
 </script>
 
 <Button on:click={() => (visible = true)} bind:button>
@@ -16,7 +18,7 @@
 </Button>
 
 <Popover bind:visible anchor={button}>
-  {#if !hideMore}
+  {#if !blogRoot}
     <a
       aria-label="More blog posts from the same author"
       href="/"
@@ -29,16 +31,18 @@
     </a>
   {/if}
 
-  <button
-    type="button"
-    role="menuitem"
-    aria-haspopup="menu"
-    on:click={share}
-    class="menu"
-  >
-    <IconShare />
-    <span>Share</span>
-  </button>
+  {#if blogRoot}
+    <button
+      type="button"
+      role="menuitem"
+      aria-haspopup="menu"
+      on:click={share}
+      class="menu"
+    >
+      <IconShare />
+      <span>Share</span>
+    </button>
+  {/if}
 
   <a
     href="https://papy.rs"
