@@ -2,6 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import Head from "../../components/Head.astro";
 import Toolbar from "../../components/Toolbar.svelte";
+import Signin from "../../components/Signin.astro";
+
+const signInCdn = import.meta.env.VITE_CLOUD_SIGN_IN_CDN;
 ---
 
 <Layout lang="{{DECKDECKGO_LANG}}">
@@ -25,6 +28,8 @@ import Toolbar from "../../components/Toolbar.svelte";
       src="https://cdn.papy.rs/libs/@deckdeckgo/highlight-code/4.3.0/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"
     ></script>
 
+    <script type="module" src={signInCdn}></script>
+
     <!-- DECKDECKGO_HEAD_EXTRA -->
   </Head>
 
@@ -32,7 +37,9 @@ import Toolbar from "../../components/Toolbar.svelte";
     <!-- DECKDECKGO_DOC -->
   </main>
 
-  <Toolbar client:idle />
+  <Toolbar client:idle >
+      <Signin slot="signin" />
+    </Toolbar>
 </Layout>
 
 <style lang="scss" is:global>
