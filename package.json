@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^1.0.0",
+    "@deckdeckgo/sync": "^0.0.38",
     "@papyrs/ic": "^0.0.24-2",
     "@papyrs/ui": "file:../ui/package",
     "svelte": "^3.50.1"

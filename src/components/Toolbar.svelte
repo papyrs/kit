@@ -22,7 +22,7 @@
 
 {#if open}
   <Modal on:papyClose={() => (open = false)}>
-    <Signin />
+    <Signin on:papySignInSuccess={() => open = false} />
   </Modal>
 {/if}
 
