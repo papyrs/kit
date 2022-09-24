@@ -1,27 +1,27 @@
 <script lang="ts">
   import {
-    Toolbar,
+    BottomBar,
     IconChatBubbleOutline,
     IconThumbUp,
     IconShare,
-    Modal
+    Modal,
   } from "@papyrs/ui";
   import { share } from "../services/share.services";
   import Signin from "./Signin.svelte";
-  
+
   let open = false;
 </script>
 
-<Toolbar>
+<BottomBar>
   <button class="icon" on:click={() => (open = true)}><IconThumbUp /></button>
   <button class="icon like"><IconChatBubbleOutline /></button>
   <button class="icon" aria-label="Share" on:click={share}><IconShare /></button
   >
-</Toolbar>
+</BottomBar>
 
 {#if open}
   <Modal on:papyClose={() => (open = false)}>
-    <Signin on:papySignInSuccess={() => open = false} />
+    <Signin on:papySignInSuccess={() => (open = false)} />
   </Modal>
 {/if}
 
@@ -38,5 +38,4 @@
   :global(div.modal) {
     --modal-content-padding: 0 0 0 0.45rem;
   }
-  
 </style>

@@ -1,4 +1,3 @@
-import { browser } from "$app/environment";
 import type { AuthUser } from "@deckdeckgo/editor";
 import { authSubscribe } from "@deckdeckgo/sync";
 import { readable } from "svelte/store";
@@ -17,10 +16,6 @@ const start = (set) => {
   let subscriber: () => void | undefined = undefined;
 
   (async () => {
-    if (!browser) {
-      return;
-    }
-
     subscriber = authSubscribe((authUser: AuthUser | null) =>
       set({
         authUser,

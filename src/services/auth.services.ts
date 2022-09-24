@@ -1,4 +1,4 @@
-import { initAuth as initAuthSync } from "@deckdeckgo/sync";
+import { initAuth as initAuthSync, signOut } from "@deckdeckgo/sync";
 import { toastsError } from "../stores/toasts.store";
 import { icConfig } from "../utils/env.utils";
 
@@ -11,4 +11,8 @@ export const initAuth = async () => {
       detail: err,
     });
   }
+};
+
+export const signUserOut = async () => {
+  await signOut();
 };

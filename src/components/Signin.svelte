@@ -1,17 +1,17 @@
 <script lang="ts">
   import { toastsError } from "../stores/toasts.store";
   import { initAuth } from "../services/auth.services";
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
 
   const proxyUrl = import.meta.env.PUBLIC_VITE_SIGN_IN_PROXY_URL;
 
   const dispatch = createEventDispatcher();
 
   const onSignInSuccess = async () => {
-      await initAuth();
+    await initAuth();
 
-      dispatch('papySignInSuccess');
-  }
+    dispatch("papySignInSuccess");
+  };
 
   const onSignInError = (err?: string) =>
     toastsError({

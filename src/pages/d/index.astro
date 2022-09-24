@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Head from "../../components/Head.astro";
-import Toolbar from "../../components/Toolbar.svelte";
+import BottomBar from "../../components/BottomBar.svelte";
 
 const signInCdn = import.meta.env.VITE_CLOUD_SIGN_IN_CDN;
 ---
@@ -36,7 +36,7 @@ const signInCdn = import.meta.env.VITE_CLOUD_SIGN_IN_CDN;
     <!-- DECKDECKGO_DOC -->
   </main>
 
-  <Toolbar client:idle />
+  <BottomBar client:idle />
 </Layout>
 
 <style lang="scss" is:global>

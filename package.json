@@ -25,6 +25,7 @@
     "autoprefixer": "^10.4.11",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",
+    "prettier-plugin-svelte": "^2.7.0",
     "sass": "^1.54.9",
     "workbox-build": "^6.5.4"
   },
