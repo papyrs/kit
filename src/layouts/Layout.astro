@@ -1,4 +1,5 @@
 ---
+import App from "../components/App.svelte";
 import Nav from "../components/Nav.svelte";
 import Share from "../components/Share.astro";
 
@@ -13,6 +14,8 @@ const { lang = "en" } = Astro.props;
 <html lang={lang} theme="{{DECKDECKGO_THEME}}">
   <slot name="head" />
   <body>
+    <App client:idle />
+
     <Nav client:idle />
 
     <slot />

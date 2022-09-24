@@ -4,8 +4,7 @@
     IconChatBubbleOutline,
     IconThumbUp,
     IconShare,
-    Modal,
-    Toasts
+    Modal
   } from "@papyrs/ui";
   import { share } from "../services/share.services";
   import Signin from "./Signin.svelte";
@@ -25,8 +24,6 @@
     <Signin on:papySignInSuccess={() => open = false} />
   </Modal>
 {/if}
-
-<Toasts />
 
 <style lang="scss">
   button {
