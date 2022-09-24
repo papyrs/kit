@@ -11,3 +11,16 @@
     <User />
   {/if}
 </nav>
+
+<style lang="scss">
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    pointer-events: none;
+
+    :global(*) {
+      pointer-events: auto;
+    }
+  }
+</style>

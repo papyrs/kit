@@ -1,3 +1,5 @@
+import type {EnvironmentCdn, EnvironmentCloud} from '@deckdeckgo/sync';
+
 export const isBrowser = typeof window !== "undefined";
 
 export const icConfig = (): Record<string, string | boolean> => {
@@ -10,5 +12,17 @@ export const icConfig = (): Record<string, string | boolean> => {
     managerCanisterId,
     author: "Papyrs",
     ...(localIdentityCanisterId && { localIdentityCanisterId }),
+  };
+};
+
+export const cloudConfig = (): EnvironmentCloud | undefined => {
+  return {
+    api: {
+      cdn: import.meta.env.PUBLIC_VITE_CLOUD_API_CDN as string
+    },
+    signIn: {
+      tag: `ic-signin-sso`,
+      cdn: import.meta.env.VITE_CLOUD_SIGN_IN_CDN as string
+    }
   };
 };

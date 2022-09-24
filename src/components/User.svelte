@@ -18,13 +18,7 @@
 </script>
 
 <Button on:click={() => (visible = true)} bind:button>
-  <svelte:fragment slot="icon">
-    {#if $auth.loggedIn}
-      <Avatar />
-    {:else}
-      <IconMore />
-    {/if}
-  </svelte:fragment>
+  <Avatar photoUrl={$user.photoUrl} alt="Profile image" slot="icon" />
 
   {$user?.name ?? "User"}
 </Button>
