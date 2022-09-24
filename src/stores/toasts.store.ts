@@ -1,6 +1,7 @@
-import {toasts, type ToastMsg} from '@papyrs/ui';
+import { toasts, type ToastMsg } from "@papyrs/ui";
 
-export const toastsError = (msg: {text: string; detail?: unknown}) => toasts.error(msg);
+export const toastsError = (msg: { text: string; detail?: unknown }) =>
+  toasts.error(msg);
 
 export const toastsShow = (msg: ToastMsg) => toasts.show(msg);
 
