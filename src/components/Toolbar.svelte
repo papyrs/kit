@@ -5,9 +5,11 @@
     IconThumbUp,
     IconShare,
     Modal,
+    Toasts
   } from "@papyrs/ui";
   import { share } from "../services/share.services";
-
+  import Signin from "./Signin.svelte";
+  
   let open = false;
 </script>
 
@@ -20,9 +22,11 @@
 
 {#if open}
   <Modal on:papyClose={() => (open = false)}>
-    <slot name="signin" />
+    <Signin />
   </Modal>
 {/if}
+
+<Toasts />
 
 <style lang="scss">
   button {
