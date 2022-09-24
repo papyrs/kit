@@ -1,6 +1,6 @@
 <script lang="ts">
   import { toastsError } from "../stores/toasts.store";
-  import { initAuth } from "../services/auth.services";
+  import { emit } from "../utils/events.utils";
   import { createEventDispatcher } from "svelte";
 
   const proxyUrl = import.meta.env.PUBLIC_VITE_SIGN_IN_PROXY_URL;
@@ -8,7 +8,7 @@
   const dispatch = createEventDispatcher();
 
   const onSignInSuccess = async () => {
-    await initAuth();
+    emit({ message: "papySignIn" });
 
     dispatch("papySignInSuccess");
   };

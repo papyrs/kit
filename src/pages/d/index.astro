@@ -1,12 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Head from "../../components/Head.astro";
-import BottomBar from "../../components/BottomBar.svelte";
 
 const signInCdn = import.meta.env.VITE_CLOUD_SIGN_IN_CDN;
 ---
 
-<Layout lang="{{DECKDECKGO_LANG}}">
+<Layout lang="{{DECKDECKGO_LANG}}" bottomBar={true}>
   <Head slot="head">
     <title>%%DECKDECKGO_TITLE%%</title>
 
@@ -35,8 +34,6 @@ const signInCdn = import.meta.env.VITE_CLOUD_SIGN_IN_CDN;
   <main>
     <!-- DECKDECKGO_DOC -->
   </main>
-
-  <BottomBar client:idle />
 </Layout>
 
 <style lang="scss" is:global>
