@@ -6,6 +6,7 @@
   const dispatch = createEventDispatcher();
 
   let processing = false;
+  let liked = false;
 
   const onClick = () => {
     if (!$auth.loggedIn) {
@@ -14,6 +15,11 @@
     }
 
     processing = true;
+
+    setTimeout(() => {
+        liked = true;
+        processing = false;
+    }, 2000)
   };
 </script>
 
@@ -26,7 +32,7 @@
   {#if processing}
     <Spinner />
   {:else}
-    <IconThumbUp />
+    <IconThumbUp fill={liked} />
   {/if}
 </button>
 
