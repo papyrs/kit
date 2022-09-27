@@ -1,32 +1,28 @@
 <script lang="ts">
-  import {
-    BottomBar,
-    IconChatBubbleOutline,
-    IconThumbUp,
-    IconShare,
-    Modal,
-  } from "@papyrs/ui";
+  import { BottomBar, IconChatBubbleOutline, IconShare, Modal } from "@papyrs/ui";
   import { share } from "../services/share.services";
+  import Like from "./Like.svelte";
   import Signin from "./Signin.svelte";
 
-  let open = false;
+  let openSignIn = false;
 </script>
 
 <BottomBar>
-  <button class="icon" on:click={() => (open = true)}><IconThumbUp /></button>
+  <Like on:papySignIn={() => openSignIn = true} />
   <button class="icon like"><IconChatBubbleOutline /></button>
   <button class="icon" aria-label="Share" on:click={share}><IconShare /></button
   >
 </BottomBar>
 
-{#if open}
-  <Modal on:papyClose={() => (open = false)}>
-    <Signin on:papySignInSuccess={() => (open = false)} />
+{#if openSignIn}
+  <Modal on:papyClose={() => (openSignIn = false)}>
+    <Signin on:papySignInSuccess={() => (openSignIn = false)} />
   </Modal>
 {/if}
 
+
 <style lang="scss">
-  button {
+  button, :global(button) {
     height: 100%;
     padding: 0.45rem 0.75rem;
   }
