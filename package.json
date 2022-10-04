@@ -21,6 +21,7 @@
   },
   "homepage": "https://papy.rs",
   "devDependencies": {
+    "@deckdeckgo/editor": "file:../../deckgo/deckdeckgo/utils/editor",
     "astro": "^1.2.5",
     "autoprefixer": "^10.4.11",
     "prettier": "^2.7.1",

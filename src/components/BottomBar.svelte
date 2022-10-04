@@ -22,7 +22,7 @@
 
 
 <style lang="scss">
-  button, :global(button) {
+  button {
     height: 100%;
     padding: 0.45rem 0.75rem;
   }
