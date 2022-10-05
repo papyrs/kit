@@ -9,11 +9,12 @@
     likeDislike,
   } from "../services/like.services";
   import type { Interaction } from "@deckdeckgo/editor";
+  import {ready} from "../stores/app.store";
 
   const dispatch = createEventDispatcher();
 
   let processing = false;
-  let likeAnimation: undefined | "+1" | "-1" = undefined;
+  let likeAnimation: undefined | string = undefined;
 
   let countLikes: bigint | undefined = undefined;
   let like: Interaction | undefined;
@@ -23,7 +24,11 @@
     canisterId: import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID,
   };
 
-  onMount(async () => {
+  const init = async () => {
+    if (!$ready) {
+      return;
+    }
+
     try {
       const [count, userLike] = await Promise.all([
         countLikesService(cloudParams),
@@ -32,13 +37,32 @@
 
       countLikes = count;
       like = userLike;
-
-      console.log(countLikes, userLike);
     } catch (err) {
       // TODO: error
       console.error(err);
     }
-  });
+  }
+
+  const reload = async () => {
+    if (!$auth.loggedIn) {
+      // it's a sign-out
+      if ($ready) {
+        like = undefined;
+      }
+
+      return;
+    }
+
+    await init();
+  }
+
+  $: $ready, (async () => await init())();
+  $: $auth, (async () => await reload())();
+
+  const animateLike = () => {
+    likeAnimation = `${like?.data.like === true ? "+" : "-"}1`;
+    setTimeout(() => (likeAnimation = undefined), 1500);
+  }
 
   const onClick = async () => {
     if (!$auth.loggedIn) {
@@ -49,18 +73,15 @@
     processing = true;
 
     try {
-      await likeDislike({...cloudParams, like});
+      like = {...await likeDislike({...cloudParams, like})};
+
+      processing = false;
+
+      animateLike();
     } catch (err) {
       // TODO: error
       console.error(err);
     }
-
-    setTimeout(() => {
-      processing = false;
-      likeAnimation = "+1";
-
-      setTimeout(() => (likeAnimation = undefined), 1500);
-    }, 2000);
   };
 </script>
 

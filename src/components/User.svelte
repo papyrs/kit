@@ -2,10 +2,9 @@
   import { Popover, Button, Avatar } from "@papyrs/ui";
   import { user } from "../stores/user.store";
   import { signUserOut } from "../services/auth.services";
-  import { IconSignOut, IconMore } from "@papyrs/ui";
-  import { dirty } from "../stores/sync.store";
+  import { IconSignOut } from "@papyrs/ui";
+  import { dirty } from "../stores/app.store";
   import Dirty from "./Dirty.svelte";
-  import { auth } from "../stores/auth.store";
 
   let visible: boolean | undefined;
   let button: HTMLButtonElement | undefined;

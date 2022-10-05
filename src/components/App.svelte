@@ -6,6 +6,7 @@
   import { cloudConfig } from "../utils/env.utils";
   import Nav from "./Nav.svelte";
   import BottomBar from "./BottomBar.svelte";
+  import {ready} from "../stores/app.store";
 
   export let bottomBar: boolean = false;
 
@@ -20,6 +21,8 @@
     });
 
     await initAuth();
+
+    ready.set(true);
   });
 
   onDestroy(() =>
