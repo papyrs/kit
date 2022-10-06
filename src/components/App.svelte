@@ -35,7 +35,7 @@
 <Nav />
 
 {#if bottomBar}
-  <BottomBar />
+  <BottomBar columns="2" />
 {/if}
 
 <Toasts />

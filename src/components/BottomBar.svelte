@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BottomBar, IconChatBubbleOutline, IconShare, Modal } from "@papyrs/ui";
+  import { BottomBar, IconShare, Modal } from "@papyrs/ui";
   import { share } from "../services/share.services";
   import Like from "./Like.svelte";
   import Signin from "./Signin.svelte";
@@ -9,7 +9,7 @@
 
 <BottomBar>
   <Like on:papySignIn={() => openSignIn = true} />
-  <button class="icon like"><IconChatBubbleOutline /></button>
+  <!-- button class="icon like"><IconChatBubbleOutline /></button -->
   <button class="icon" aria-label="Share" on:click={share}><IconShare /></button
   >
 </BottomBar>

@@ -9,7 +9,8 @@
     likeDislike,
   } from "../services/like.services";
   import type { Interaction } from "@deckdeckgo/editor";
-  import {ready} from "../stores/app.store";
+  import { ready } from "../stores/app.store";
+  import { toastsError } from "../stores/toasts.store";
 
   const dispatch = createEventDispatcher();
 
@@ -38,10 +39,13 @@
       countLikes = count;
       like = userLike;
     } catch (err) {
-      // TODO: error
       console.error(err);
+      toastsError({
+        text: "Something went wrong while fetching the information about the likes.",
+        detail: err,
+      });
     }
-  }
+  };
 
   const reload = async () => {
     if (!$auth.loggedIn) {
@@ -54,7 +58,7 @@
     }
 
     await init();
-  }
+  };
 
   $: $ready, (async () => await init())();
   $: $auth, (async () => await reload())();
@@ -62,7 +66,7 @@
   const animateLike = () => {
     likeAnimation = `${like?.data.like === true ? "+" : "-"}1`;
     setTimeout(() => (likeAnimation = undefined), 1500);
-  }
+  };
 
   const onClick = async () => {
     if (!$auth.loggedIn) {
@@ -73,14 +77,17 @@
     processing = true;
 
     try {
-      like = {...await likeDislike({...cloudParams, like})};
+      like = { ...(await likeDislike({ ...cloudParams, like })) };
 
       processing = false;
 
       animateLike();
     } catch (err) {
-      // TODO: error
       console.error(err);
+      toastsError({
+        text: "Something went wrong while registering your like.",
+        detail: err,
+      });
     }
   };
 </script>
@@ -89,7 +96,9 @@
   <button
     class="icon"
     on:click={onClick}
-    aria-label="Like the article"
+    aria-label={like?.data.like === true
+      ? "Dislike the article"
+      : "Like this article"}
     disabled={processing || countLikes === undefined}
   >
     {#if processing}
