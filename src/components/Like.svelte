@@ -1,6 +1,6 @@
 <script lang="ts">
   import { IconThumbUp, Spinner } from "@papyrs/ui";
-  import { createEventDispatcher, onMount } from "svelte";
+  import { createEventDispatcher } from "svelte";
   import { auth } from "../stores/auth.store";
   import { fade, fly } from "svelte/transition";
   import {
@@ -9,12 +9,12 @@
     likeDislike,
   } from "../services/like.services";
   import type { Interaction } from "@deckdeckgo/editor";
-  import { ready } from "../stores/app.store";
+  import {processing, ready} from "../stores/app.store";
   import { toastsError } from "../stores/toasts.store";
+  import {dirty} from "../stores/dirty.derived";
 
   const dispatch = createEventDispatcher();
 
-  let processing = false;
   let likeAnimation: undefined | string = undefined;
 
   let countLikes: bigint | undefined = undefined;
@@ -74,15 +74,17 @@
       return;
     }
 
-    processing = true;
+    processing.set(true);
 
     try {
       like = { ...(await likeDislike({ ...cloudParams, like })) };
 
-      processing = false;
+      processing.set(false);
 
       animateLike();
     } catch (err) {
+      processing.set(false);
+
       console.error(err);
       toastsError({
         text: "Something went wrong while registering your like.",
@@ -97,11 +99,11 @@
     class="icon"
     on:click={onClick}
     aria-label={like?.data.like === true
-      ? "Dislike the article"
-      : "Like this article"}
-    disabled={processing || countLikes === undefined}
+      ? "Dislike this article?"
+      : "Like this article?"}
+    disabled={$dirty || countLikes === undefined}
   >
-    {#if processing}
+    {#if $processing}
       <Spinner />
     {:else}
       <IconThumbUp fill={like?.data.like === true} />

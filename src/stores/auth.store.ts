@@ -15,14 +15,12 @@ const initAuthStore: AuthStore = {
 const start = (set) => {
   let subscriber: () => void | undefined = undefined;
 
-  (async () => {
-    subscriber = authSubscribe((authUser: AuthUser | null) =>
+  subscriber = authSubscribe((authUser: AuthUser | null) =>
       set({
         authUser,
-        loggedIn: authUser && authUser.state === "authenticated",
+        loggedIn: authUser?.state === "authenticated",
       })
-    );
-  })();
+  );
 
   return function stop() {
     subscriber?.();

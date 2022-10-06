@@ -7,8 +7,8 @@
   let openSignIn = false;
 </script>
 
-<BottomBar>
-  <Like on:papySignIn={() => openSignIn = true} />
+<BottomBar columns={2}>
+  <Like on:papySignIn={() => (openSignIn = true)} />
   <!-- button class="icon like"><IconChatBubbleOutline /></button -->
   <button class="icon" aria-label="Share" on:click={share}><IconShare /></button
   >
@@ -19,7 +19,6 @@
     <Signin on:papySignInSuccess={() => (openSignIn = false)} />
   </Modal>
 {/if}
-
 
 <style lang="scss">
   button {

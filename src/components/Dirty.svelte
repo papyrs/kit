@@ -1,5 +1,5 @@
 <div class="info">
-  <p>Wait until your comments are saved.</p>
+  <p>Wait until your data are synced.</p>
 </div>
 
 <style lang="scss">

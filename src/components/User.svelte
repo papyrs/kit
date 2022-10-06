@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { Popover, Button, Avatar } from "@papyrs/ui";
+  import { Popover, Button, Avatar, IconSync } from "@papyrs/ui";
   import { user } from "../stores/user.store";
   import { signUserOut } from "../services/auth.services";
   import { IconSignOut } from "@papyrs/ui";
-  import { dirty } from "../stores/app.store";
+  import { dirty } from "../stores/dirty.derived";
   import Dirty from "./Dirty.svelte";
+  import { auth } from "../stores/auth.store";
 
   let visible: boolean | undefined;
   let button: HTMLButtonElement | undefined;
@@ -16,11 +17,19 @@
   };
 </script>
 
-<Button on:click={() => (visible = true)} bind:button>
-  <Avatar photoUrl={$user.photoUrl} alt="Profile image" slot="icon" />
+{#if $auth.authUser !== null}
+  <Button on:click={() => (visible = true)} bind:button>
+    <svelte:fragment slot="icon">
+      {#if $auth.loggedIn}
+        <Avatar photoUrl={$user?.photoUrl} alt="Profile image" slot="icon" />
+      {:else}
+        <IconSync />
+      {/if}
+    </svelte:fragment>
 
-  {$user?.name ?? "User"}
-</Button>
+    {$auth.loggedIn ? $user?.name ?? "User" : "Syncing cloud"}
+  </Button>
+{/if}
 
 <Popover bind:visible anchor={button} direction="rtl">
   {#if $dirty}
