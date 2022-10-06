@@ -33,4 +33,19 @@
   :global(div.modal) {
     --modal-content-padding: 0 0 0 0.45rem;
   }
+
+  :global(div.modal div.wrapper.flex) {
+    background: linear-gradient(
+      135deg,
+      #ffeed6 20%,
+      #d5ffef 20%,
+      #d5ffef 40%,
+      #c4cdff 40%,
+      #c4cdff 60%,
+      #ffd5f7 60%,
+      #ffd5f7 80%,
+      #ffcece 80%,
+      #ffcece
+    );
+  }
 </style>
