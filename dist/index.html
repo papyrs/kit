@@ -9,7 +9,7 @@
     manifest-src 'self';
     style-src 'self' 'unsafe-inline' https://cdn.papy.rs;
     font-src 'self' https://cdn.papy.rs;
-    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' https://cdn.papy.rs/ http://localhost:3335/;
+    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-65VrqdaH15EQPGeNoQEvYm2ZC/ME8VIboB46/Mv853k=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' https://cdn.papy.rs/ http://localhost:3335/;
     connect-src blob: https://cdn.papy.rs https://ic0.app http://localhost:3335 http://localhost:8000;
     child-src 'self' blob: data:;
     object-src 'self' https://app.papy.rs http://localhost:5173;
@@ -55,7 +55,11 @@
 
   <script type="module" src="https://cdn.papy.rs/libs/@deckdeckgo/lazy-img/3.4.0/dist/deckdeckgo-lazy-img/deckdeckgo-lazy-img.esm.js"></script>
 
-  
+  <script>
+    window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
+    window.data_canister_id = "{{DECKDECKGO_DATA_CANISTER_ID}}";
+    window.doc_id = "{{DECKDECKGO_DATA_ID}}";
+  </script>
 
   <title>%%DECKDECKGO_AUTHOR%% - Blog</title><meta name="description" content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"><meta property="og:title" content="{{DECKDECKGO_AUTHOR}} - Blog"><meta property="og:description" content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"><meta property="og:site_name" content="{{DECKDECKGO_AUTHOR}} - Blog"><meta property="og:type" content="website"><meta property="og:image" content="https://cnd.papy.rs/images/social-image.jpg"><meta name="twitter:title" content="{{DECKDECKGO_AUTHOR}} - Blog"><meta name="twitter:description" content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"><meta name="twitter:image:src" content="https://cdn.papy.rs/assets/images/social-image.jpg">
 
