@@ -31,8 +31,6 @@
       canisterId: window.data_canister_id,
     };
 
-    console.log(cloudParams);
-
     try {
       const [count, userLike] = await Promise.all([
         countLikesService(cloudParams),
