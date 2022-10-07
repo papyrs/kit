@@ -20,6 +20,7 @@ const csp = import.meta.env.PROD;
     font-src 'self' https://cdn.papy.rs;
     script-src 'self' {{DECKDECKGO_EXTRA_SHAS}} https://cdn.papy.rs/;
     connect-src https://cdn.papy.rs;
+    child-src 'self' blob: data:;
     upgrade-insecure-requests;"
       />
     )
