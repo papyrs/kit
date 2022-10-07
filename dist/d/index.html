@@ -4,6 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
 
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none';
+    img-src 'self' data: https://cdn.papy.rs https://media.tenor.com/ https://images.unsplash.com/;
+    manifest-src 'self';
+    style-src 'self' 'unsafe-inline' https://cdn.papy.rs;
+    font-src 'self' https://cdn.papy.rs;
+    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' https://cdn.papy.rs/ http://localhost:3335/;
+    connect-src blob: https://cdn.papy.rs https://ic0.app http://localhost:3335 http://localhost:8000;
+    child-src 'self' blob: data:;
+    object-src 'self' https://app.papy.rs http://localhost:5173;
+    frame-src 'self' https://app.papy.rs http://localhost:5173;
+    upgrade-insecure-requests;">
 
   <link href="/sitemap.xml" rel="sitemap" type="application/xml">
   <link href="/rss.xml" rel="alternate" title="{{DECKDECKGO_AUTHOR}} blog" type="application/rss+xml">
