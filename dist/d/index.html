@@ -9,8 +9,11 @@
     manifest-src 'self';
     style-src 'self' 'unsafe-inline' https://cdn.papy.rs;
     font-src 'self' https://cdn.papy.rs;
-    script-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' https://cdn.papy.rs/;
-    connect-src https://cdn.papy.rs;
+    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' https://cdn.papy.rs/ http://localhost:3335/;
+    connect-src blob: https://cdn.papy.rs https://ic0.app http://localhost:3335 http://localhost:8000;
+    child-src 'self' blob: data:;
+    object-src 'self' https://app.papy.rs http://localhost:5173;
+    frame-src 'self' https://app.papy.rs http://localhost:5173;
     upgrade-insecure-requests;">
 
   <link href="/sitemap.xml" rel="sitemap" type="application/xml">
@@ -54,7 +57,7 @@
 
   
 
-  <title>%%DECKDECKGO_TITLE%%</title><meta name="description" content="{{DECKDECKGO_DESCRIPTION}}"><meta property="og:title" content="{{DECKDECKGO_TITLE}}"><meta property="og:description" content="{{DECKDECKGO_DESCRIPTION}}"><meta property="og:site_name" content="{{DECKDECKGO_TITLE}}"><meta property="og:type" content="article"><meta property="og:image" content="{{DECKDECKGO_SOCIAL_IMAGE}}"><meta name="twitter:title" content="{{DECKDECKGO_TITLE}}"><meta name="twitter:description" content="{{DECKDECKGO_DESCRIPTION}}"><meta name="twitter:image:src" content="{{DECKDECKGO_SOCIAL_IMAGE}}"><script type="module" src="https://cdn.papy.rs/libs/@deckdeckgo/highlight-code/4.3.0/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"></script><script type="module" src="https://cdn.papy.rs/libs/@papyrs/ic/0.0.21/dist/papyrs-ic/papyrs-ic.esm.js"></script>
+  <title>%%DECKDECKGO_TITLE%%</title><meta name="description" content="{{DECKDECKGO_DESCRIPTION}}"><meta property="og:title" content="{{DECKDECKGO_TITLE}}"><meta property="og:description" content="{{DECKDECKGO_DESCRIPTION}}"><meta property="og:site_name" content="{{DECKDECKGO_TITLE}}"><meta property="og:type" content="article"><meta property="og:image" content="{{DECKDECKGO_SOCIAL_IMAGE}}"><meta name="twitter:title" content="{{DECKDECKGO_TITLE}}"><meta name="twitter:description" content="{{DECKDECKGO_DESCRIPTION}}"><meta name="twitter:image:src" content="{{DECKDECKGO_SOCIAL_IMAGE}}"><script type="module" src="https://cdn.papy.rs/libs/@deckdeckgo/highlight-code/4.3.0/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"></script><script type="module" src="http://localhost:3335/build/papyrs-ic.esm.js"></script>
 
   <!-- DECKDECKGO_HEAD_SCRIPT -->
   <!-- DECKDECKGO_HEAD_CSS -->
