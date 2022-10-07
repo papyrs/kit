@@ -12,6 +12,7 @@
   import {processing, ready} from "../stores/app.store";
   import { toastsError } from "../stores/toasts.store";
   import {dirty} from "../stores/dirty.derived";
+  import {isBrowser} from "../utils/env.utils";
 
   const dispatch = createEventDispatcher();
 
@@ -20,15 +21,17 @@
   let countLikes: bigint | undefined = undefined;
   let like: Interaction | undefined;
 
-  const cloudParams = {
-    docId: import.meta.env.PUBLIC_VITE_IC_DOC_ID,
-    canisterId: import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID,
-  };
-
   const init = async () => {
-    if (!$ready) {
+    if (!$ready || !isBrowser) {
       return;
     }
+
+    const cloudParams = {
+      docId: window.doc_id,
+      canisterId: window.data_canister_id,
+    };
+
+    console.log(cloudParams);
 
     try {
       const [count, userLike] = await Promise.all([
