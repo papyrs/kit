@@ -1,1 +1,1 @@
-import{i}from"./chunks/share.services.js";window.prismjs_cdn="https://cdn.papy.rs/libs/prismjs/1.27.0";window.data_canister_id="{{DECKDECKGO_DATA_CANISTER_ID}}";window.data_id="{{DECKDECKGO_DATA_ID}}";i();
+import{i}from"./chunks/share.services.js";window.prismjs_cdn="https://cdn.papy.rs/libs/prismjs/1.27.0";window.data_canister_id="{{DECKDECKGO_DATA_CANISTER_ID}}";window.doc_id="{{DECKDECKGO_DATA_ID}}";i();
