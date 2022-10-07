@@ -100,7 +100,7 @@
     on:click={onClick}
     aria-label={like?.data.like === true
       ? "Remove given like"
-      : "Like this article"}
+      : "Like"}
     disabled={$dirty || countLikes === undefined}
   >
     {#if $processing}
