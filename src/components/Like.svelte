@@ -27,8 +27,8 @@
     }
 
     const cloudParams = {
-      docId: window.doc_id,
-      canisterId: window.data_canister_id,
+      docId: import.meta.env.PUBLIC_VITE_IC_DOC_ID ?? window.doc_id,
+      canisterId: import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ?? window.data_canister_id
     };
 
     try {
