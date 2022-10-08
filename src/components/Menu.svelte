@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { IconMenu, Button, Popover, IconNew, IconShare } from "@papyrs/ui";
+  import { IconMenu, Button, Popover, IconHome, IconShare } from "@papyrs/ui";
   import { share } from "../services/share.services";
   import { isBrowser } from "../utils/env.utils";
 
@@ -26,23 +26,21 @@
       role="menuitem"
       aria-haspopup="menu"
     >
-      <IconNew />
-      <span>More from author</span>
+      <IconHome />
+      <span>Home</span>
     </a>
   {/if}
 
-  {#if blogRoot}
-    <button
-      type="button"
-      role="menuitem"
-      aria-haspopup="menu"
-      on:click={share}
-      class="menu"
-    >
-      <IconShare />
-      <span>Share</span>
-    </button>
-  {/if}
+  <button
+    type="button"
+    role="menuitem"
+    aria-haspopup="menu"
+    on:click={share}
+    class="menu"
+  >
+    <IconShare />
+    <span>Share</span>
+  </button>
 
   <a
     href="https://papy.rs"
@@ -55,6 +53,7 @@
       width="24px"
       viewBox="0 0 33 34"
       xmlns="http://www.w3.org/2000/svg"
+      style="padding: 0.1rem"
     >
       <g transform="matrix(1,0,0,1,30,10.596)">
         <path

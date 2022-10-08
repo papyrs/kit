@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Popover, Button, Avatar, IconSync } from "@papyrs/ui";
+  import { Popover, Button, Avatar, IconSync, IconNew } from "@papyrs/ui";
   import { user } from "../stores/user.store";
   import { signUserOut } from "../services/auth.services";
   import { IconSignOut } from "@papyrs/ui";
@@ -35,6 +35,16 @@
   {#if $dirty}
     <Dirty />
   {:else}
+    <a
+      href="https://app.papy.rs"
+      class="menu"
+      aria-haspopup="menu"
+      rel="noopener norefferer"
+    >
+      <IconNew />
+      <span>Write a post</span>
+    </a>
+
     <button
       type="button"
       role="menuitem"
