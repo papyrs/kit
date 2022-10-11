@@ -38,8 +38,6 @@
       return;
     }
 
-    console.log("init", cloudParams);
-
     try {
       const [count, userLike] = await Promise.all([
         countLikesService(cloudParams as InteractionPrams),
