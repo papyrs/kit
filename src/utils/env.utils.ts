@@ -26,8 +26,11 @@ export const cloudConfig = (): EnvironmentCloud | undefined => ({
   },
 });
 
-export const interactionParams = (): InteractionPrams => ({
-  docId: import.meta.env.PUBLIC_VITE_IC_DOC_ID ?? window.doc_id,
+export const interactionParams = (): Partial<InteractionPrams> => ({
+  docId:
+    import.meta.env.PUBLIC_VITE_IC_DOC_ID ??
+    (isBrowser ? window.doc_id : undefined),
   canisterId:
-    import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ?? window.data_canister_id,
+    import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ??
+    (isBrowser ? window.data_canister_id : undefined),
 });

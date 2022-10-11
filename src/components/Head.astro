@@ -122,10 +122,10 @@ const csp = import.meta.env.PROD;
     window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
     window.data_canister_id = "{{DECKDECKGO_DATA_CANISTER_ID}}";
     window.doc_id = "{{DECKDECKGO_DATA_ID}}";
+
+    const dataReady = new CustomEvent('blogDataReady', {bubbles: true});
+    document.body.dispatchEvent(dataReady);
   </script>
 
   <slot />
-
-  <!-- DECKDECKGO_HEAD_SCRIPT -->
-  <!-- DECKDECKGO_HEAD_CSS -->
 </head>

@@ -12,7 +12,8 @@
   import { processing, ready } from "../stores/app.store";
   import { toastsError } from "../stores/toasts.store";
   import { dirty } from "../stores/dirty.derived";
-  import { isBrowser } from "../utils/env.utils";
+  import { interactionParams, isBrowser } from "../utils/env.utils";
+  import { InteractionPrams } from "../types/interaction.types";
 
   const dispatch = createEventDispatcher();
 
@@ -21,15 +22,28 @@
   let countLikes: bigint | undefined = undefined;
   let like: Interaction | undefined;
 
+  let cloudParams: Partial<InteractionPrams> | undefined;
+
   const init = async () => {
     if (!$ready || !isBrowser) {
       return;
     }
 
+    cloudParams = interactionParams();
+
+    if (
+      cloudParams.docId === undefined ||
+      cloudParams.canisterId === undefined
+    ) {
+      return;
+    }
+
+    console.log("init", cloudParams);
+
     try {
       const [count, userLike] = await Promise.all([
-        countLikesService(),
-        getLike(),
+        countLikesService(cloudParams as InteractionPrams),
+        getLike(cloudParams as InteractionPrams),
       ]);
 
       countLikes = count;
@@ -77,7 +91,9 @@
     processing.set(true);
 
     try {
-      like = { ...(await likeDislike({ like })) };
+      like = {
+        ...(await likeDislike({ like, ...(cloudParams as InteractionPrams) })),
+      };
 
       processing.set(false);
 
@@ -93,6 +109,8 @@
     }
   };
 </script>
+
+<svelte:window on:blogDataReady={init} />
 
 <div>
   <button

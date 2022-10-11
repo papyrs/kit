@@ -1,16 +1,17 @@
 import { cloudProvider } from "../utils/providers.utils";
 import type { Interaction } from "@deckdeckgo/editor";
-import type { InteractionCloudPrams } from "../types/interaction.types";
-import { interactionParams } from "../utils/env.utils";
+import {
+  InteractionCloudPrams,
+  InteractionPrams,
+} from "../types/interaction.types";
 
-export const countLikes = async (): Promise<bigint> => {
+export const countLikes = async ({
+  docId,
+  canisterId,
+}: InteractionPrams): Promise<bigint> => {
   const { countLikes } = await cloudProvider<{
     countLikes: (params: InteractionCloudPrams) => Promise<bigint>;
   }>();
-
-  const { docId, canisterId } = interactionParams();
-
-  console.log('here', docId, canisterId)
 
   return countLikes({
     key: "docs",
@@ -19,14 +20,15 @@ export const countLikes = async (): Promise<bigint> => {
   });
 };
 
-export const getLike = async (): Promise<Interaction | undefined> => {
+export const getLike = async ({
+  docId,
+  canisterId,
+}: InteractionPrams): Promise<Interaction | undefined> => {
   const { getLike } = await cloudProvider<{
     getLike: (
       params: InteractionCloudPrams
     ) => Promise<Interaction | undefined>;
   }>();
-
-  const { docId, canisterId } = interactionParams();
 
   return getLike({
     key: "docs",
@@ -36,8 +38,10 @@ export const getLike = async (): Promise<Interaction | undefined> => {
 };
 
 export const likeDislike = async ({
+  docId,
+  canisterId,
   like,
-}: {
+}: InteractionPrams & {
   like: Interaction | undefined;
 }): Promise<Interaction> => {
   const { likeDislike: likeProvider } = await cloudProvider<{
@@ -47,8 +51,6 @@ export const likeDislike = async ({
       }
     ) => Promise<Interaction>;
   }>();
-
-  const { docId, canisterId } = interactionParams();
 
   return likeProvider({
     key: "docs",
