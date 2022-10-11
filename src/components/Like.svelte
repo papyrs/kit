@@ -30,6 +30,8 @@
       (isBrowser ? window.data_canister_id : undefined),
   };
 
+  console.log(cloudParams, import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID, isBrowser, isBrowser ? window.data_canister_id : undefined);
+
   const init = async () => {
     if (!$ready || !isBrowser) {
       return;
