@@ -9,10 +9,10 @@
     likeDislike,
   } from "../services/like.services";
   import type { Interaction } from "@deckdeckgo/editor";
-  import {processing, ready} from "../stores/app.store";
+  import { processing, ready } from "../stores/app.store";
   import { toastsError } from "../stores/toasts.store";
-  import {dirty} from "../stores/dirty.derived";
-  import {isBrowser} from "../utils/env.utils";
+  import { dirty } from "../stores/dirty.derived";
+  import { isBrowser } from "../utils/env.utils";
 
   const dispatch = createEventDispatcher();
 
@@ -21,15 +21,19 @@
   let countLikes: bigint | undefined = undefined;
   let like: Interaction | undefined;
 
+  const cloudParams = {
+    docId:
+      import.meta.env.PUBLIC_VITE_IC_DOC_ID ??
+      (isBrowser ? window.doc_id : undefined),
+    canisterId:
+      import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ??
+      (isBrowser ? window.data_canister_id : undefined),
+  };
+
   const init = async () => {
     if (!$ready || !isBrowser) {
       return;
     }
-
-    const cloudParams = {
-      docId: import.meta.env.PUBLIC_VITE_IC_DOC_ID ?? window.doc_id,
-      canisterId: import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ?? window.data_canister_id
-    };
 
     try {
       const [count, userLike] = await Promise.all([
@@ -81,11 +85,6 @@
 
     processing.set(true);
 
-    const cloudParams = {
-      docId: import.meta.env.PUBLIC_VITE_IC_DOC_ID ?? window.doc_id,
-      canisterId: import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ?? window.data_canister_id
-    };
-
     try {
       like = { ...(await likeDislike({ ...cloudParams, like })) };
 
@@ -108,9 +107,7 @@
   <button
     class="icon"
     on:click={onClick}
-    aria-label={like?.data.like === true
-      ? "Remove given like"
-      : "Like"}
+    aria-label={like?.data.like === true ? "Remove given like" : "Like"}
     disabled={$dirty || countLikes === undefined}
   >
     {#if $processing}
