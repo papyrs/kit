@@ -1,4 +1,5 @@
-import type {EnvironmentCdn, EnvironmentCloud} from '@deckdeckgo/sync';
+import type { EnvironmentCloud } from "@deckdeckgo/sync";
+import type { InteractionPrams } from "../types/interaction.types";
 
 export const isBrowser = typeof window !== "undefined";
 
@@ -15,14 +16,18 @@ export const icConfig = (): Record<string, string | boolean> => {
   };
 };
 
-export const cloudConfig = (): EnvironmentCloud | undefined => {
-  return {
-    api: {
-      cdn: import.meta.env.PUBLIC_VITE_CLOUD_API_CDN as string
-    },
-    signIn: {
-      tag: `ic-signin-sso`,
-      cdn: import.meta.env.VITE_CLOUD_SIGN_IN_CDN as string
-    }
-  };
-};
+export const cloudConfig = (): EnvironmentCloud | undefined => ({
+  api: {
+    cdn: import.meta.env.PUBLIC_VITE_CLOUD_API_CDN as string,
+  },
+  signIn: {
+    tag: `ic-signin-sso`,
+    cdn: import.meta.env.VITE_CLOUD_SIGN_IN_CDN as string,
+  },
+});
+
+export const interactionParams = (): InteractionPrams => ({
+  docId: import.meta.env.PUBLIC_VITE_IC_DOC_ID ?? window.doc_id,
+  canisterId:
+    import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ?? window.data_canister_id,
+});

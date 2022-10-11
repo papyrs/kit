@@ -21,17 +21,6 @@
   let countLikes: bigint | undefined = undefined;
   let like: Interaction | undefined;
 
-  const cloudParams = {
-    docId:
-      import.meta.env.PUBLIC_VITE_IC_DOC_ID ??
-      (isBrowser ? window.doc_id : undefined),
-    canisterId:
-      import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ??
-      (isBrowser ? window.data_canister_id : undefined),
-  };
-
-  console.log(cloudParams, import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID, isBrowser, isBrowser ? window.data_canister_id : undefined);
-
   const init = async () => {
     if (!$ready || !isBrowser) {
       return;
@@ -39,8 +28,8 @@
 
     try {
       const [count, userLike] = await Promise.all([
-        countLikesService(cloudParams),
-        getLike(cloudParams),
+        countLikesService(),
+        getLike(),
       ]);
 
       countLikes = count;
@@ -88,7 +77,7 @@
     processing.set(true);
 
     try {
-      like = { ...(await likeDislike({ ...cloudParams, like })) };
+      like = { ...(await likeDislike({ like })) };
 
       processing.set(false);
 
