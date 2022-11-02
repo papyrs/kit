@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^1.0.0",
-    "@papyrs/ui": "^0.0.4",
+    "@papyrs/ui": "^0.0.7",
     "svelte": "^3.50.1"
   }
 }
