@@ -22,7 +22,7 @@
   "homepage": "https://papy.rs",
   "devDependencies": {
     "@deckdeckgo/editor": "^8.4.0",
-    "astro": "^1.6.2",
+    "astro": "^1.2.5",
     "autoprefixer": "^10.4.13",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.7.0",
