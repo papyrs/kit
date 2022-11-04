@@ -1,7 +1,7 @@
-import type {SyncState} from '@deckdeckgo/editor';
-import {syncBeforeUnload, syncSubscribe} from '@deckdeckgo/sync';
-import {readable} from 'svelte/store';
-import {isBrowser} from "../utils/env.utils";
+import type { SyncState } from "@deckdeckgo/editor";
+import { syncBeforeUnload, syncSubscribe } from "@deckdeckgo/sync";
+import { readable } from "svelte/store";
+import { isBrowser } from "../utils/env.utils";
 
 interface SyncStore {
   sync: SyncState;
@@ -9,8 +9,8 @@ interface SyncStore {
 }
 
 const initSyncStore: SyncStore = {
-  sync: 'idle',
-  dirty: false
+  sync: "idle",
+  dirty: false,
 };
 
 /**
@@ -25,9 +25,11 @@ const start = (set) => {
     }
 
     subscriber = syncSubscribe((syncState: SyncState) => {
-      const dirty: boolean = ['pending', 'in_progress', 'init'].includes(syncState);
+      const dirty: boolean = ["pending", "in_progress", "init"].includes(
+        syncState
+      );
 
-      set({sync: syncState, dirty});
+      set({ sync: syncState, dirty });
 
       syncBeforeUnload(dirty);
     });

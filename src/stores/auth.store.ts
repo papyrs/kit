@@ -16,10 +16,10 @@ const start = (set) => {
   let subscriber: () => void | undefined = undefined;
 
   subscriber = authSubscribe((authUser: AuthUser | null) =>
-      set({
-        authUser,
-        loggedIn: authUser?.state === "authenticated",
-      })
+    set({
+      authUser,
+      loggedIn: authUser?.state === "authenticated",
+    })
   );
 
   return function stop() {
