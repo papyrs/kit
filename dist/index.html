@@ -9,7 +9,7 @@
     manifest-src 'self';
     style-src 'self' 'unsafe-inline' https://cdn.papy.rs;
     font-src 'self' https://cdn.papy.rs;
-    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-P/i2OonFjIb0NFxh43+tb4VuZLKzSClmLkrEzUrHL2U=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' {{DECKDECKGO_IDS_SHAS}} https://cdn.papy.rs/ http://localhost:3335/;
+    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-FH/MOMHygMquTOze2ic4iioRSpBLN4ifVkbxRsyPL00=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' {{DECKDECKGO_IDS_SHAS}} https://cdn.papy.rs/ http://localhost:3335/;
     connect-src blob: https://cdn.papy.rs https://ic0.app http://localhost:3335 http://localhost:8000;
     child-src 'self' blob: data:;
     object-src 'self' https://app.papy.rs http://localhost:5173 http://localhost:5174;
@@ -61,9 +61,6 @@
     window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
 
     document.addEventListener("DOMContentLoaded", () => {
-
-      console.log(window.doc_id, window.data_canister_id, window.storage_canister_id);
-
       const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
       document.body.dispatchEvent(dataReady);
     }, {once: true});
