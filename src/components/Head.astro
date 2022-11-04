@@ -1,5 +1,11 @@
 ---
 const csp = import.meta.env.PROD;
+
+export interface Props {
+  docScripts?: boolean;
+}
+
+const { docScripts = false } = Astro.props;
 ---
 
 <head>
@@ -118,14 +124,18 @@ const csp = import.meta.env.PROD;
     src="https://cdn.papy.rs/libs/@deckdeckgo/lazy-img/3.4.0/dist/deckdeckgo-lazy-img/deckdeckgo-lazy-img.esm.js"
   ></script>
 
-  <script>
-    window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
-    window.data_canister_id = "{{DECKDECKGO_DATA_CANISTER_ID}}";
-    window.doc_id = "{{DECKDECKGO_DATA_ID}}";
+  {
+    docScripts && (
+      <script is:inline>
+        window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
+        window.data_canister_id = "{{DECKDECKGO_DATA_CANISTER_ID}}";
+        window.doc_id = "{{DECKDECKGO_DATA_ID}}";
 
-    const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
-    document.body.dispatchEvent(dataReady);
-  </script>
+        const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
+        document.body.dispatchEvent(dataReady);
+      </script>
+    )
+  }
 
   <slot />
 </head>
