@@ -27,15 +27,11 @@ export const cloudConfig = (): EnvironmentCloud | undefined => ({
 });
 
 
-export const interactionParams = (): Partial<InteractionPrams> => {
-  console.log('Svelte', window.doc_id, window.data_canister_id, window.storage_canister_id);
-
-  return {
-    docId:
-        import.meta.env.PUBLIC_VITE_IC_DOC_ID ??
-        (isBrowser ? window.doc_id : undefined),
-    canisterId:
-        import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ??
-        (isBrowser ? window.data_canister_id : undefined),
-  }
-};
+export const interactionParams = (): Partial<InteractionPrams> => ({
+  docId:
+      import.meta.env.PUBLIC_VITE_IC_DOC_ID ??
+      (isBrowser ? window.doc_id : undefined),
+  canisterId:
+      import.meta.env.PUBLIC_VITE_IC_DATA_CANISTER_ID ??
+      (isBrowser ? window.data_canister_id : undefined),
+});
