@@ -1,13 +1,15 @@
 <script lang="ts">
-  import { IconMenu, Button, Popover, IconNew, IconShare } from "@papyrs/ui";
+  import { IconMenu, Button, Popover, IconHome, IconShare } from "@papyrs/ui";
   import { share } from "../services/share.services";
   import { isBrowser } from "../utils/env.utils";
 
   let visible: boolean | undefined;
   let button: HTMLButtonElement | undefined;
 
-  const {location: {pathname}} = isBrowser ? window : {location: {pathname: '/'}};
-  let hideMore = pathname === "/";
+  const {
+    location: { pathname },
+  } = isBrowser ? window : { location: { pathname: "/" } };
+  let blogRoot = pathname === "/";
 </script>
 
 <Button on:click={() => (visible = true)} bind:button>
@@ -16,7 +18,7 @@
 </Button>
 
 <Popover bind:visible anchor={button}>
-  {#if !hideMore}
+  {#if !blogRoot}
     <a
       aria-label="More blog posts from the same author"
       href="/"
@@ -24,8 +26,8 @@
       role="menuitem"
       aria-haspopup="menu"
     >
-      <IconNew />
-      <span>More from author</span>
+      <IconHome />
+      <span>Home</span>
     </a>
   {/if}
 
@@ -51,6 +53,7 @@
       width="24px"
       viewBox="0 0 33 34"
       xmlns="http://www.w3.org/2000/svg"
+      style="padding: 0.1rem"
     >
       <g transform="matrix(1,0,0,1,30,10.596)">
         <path

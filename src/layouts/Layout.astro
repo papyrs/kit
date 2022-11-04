@@ -1,19 +1,20 @@
 ---
-import Nav from "../components/Nav.svelte";
+import App from "../components/App.svelte";
 import Share from "../components/Share.astro";
 
 export interface Props {
   lang?: string;
+  bottomBar?: boolean;
 }
 
-const { lang = "en" } = Astro.props;
+const { lang = "en", bottomBar = false } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang={lang} theme="{{DECKDECKGO_THEME}}">
   <slot name="head" />
   <body>
-    <Nav client:load />
+    <App client:idle bottomBar={bottomBar} />
 
     <slot />
 

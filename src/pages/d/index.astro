@@ -1,10 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Head from "../../components/Head.astro";
-import Watermark from "../../components/Watermark.astro";
+
+const signInCdn = import.meta.env.VITE_CLOUD_SIGN_IN_CDN;
 ---
 
-<Layout lang="{{DECKDECKGO_LANG}}">
+<Layout lang="{{DECKDECKGO_LANG}}" bottomBar={true}>
   <Head slot="head">
     <title>%%DECKDECKGO_TITLE%%</title>
 
@@ -25,13 +26,13 @@ import Watermark from "../../components/Watermark.astro";
       src="https://cdn.papy.rs/libs/@deckdeckgo/highlight-code/4.3.0/dist/deckdeckgo-highlight-code/deckdeckgo-highlight-code.esm.js"
     ></script>
 
+    <script type="module" src={signInCdn}></script>
+
     <!-- DECKDECKGO_HEAD_EXTRA -->
   </Head>
 
   <main>
     <!-- DECKDECKGO_DOC -->
-
-    <Watermark />
   </main>
 </Layout>
 

@@ -1,1 +1,1 @@
-import{i}from"./chunks/share.services.js";window.prismjs_cdn="https://cdn.papy.rs/libs/prismjs/1.27.0";i();
+import{i as d}from"./chunks/share.services.js";window.prismjs_cdn="https://cdn.papy.rs/libs/prismjs/1.27.0";window.data_canister_id="{{DECKDECKGO_DATA_CANISTER_ID}}";window.doc_id="{{DECKDECKGO_DATA_ID}}";const t=new CustomEvent("blogDataReady",{bubbles:!0});document.body.dispatchEvent(t);d();
