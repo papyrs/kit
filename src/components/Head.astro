@@ -14,7 +14,7 @@ const csp = import.meta.env.PROD;
       <meta
         http-equiv="Content-Security-Policy"
         content="default-src 'none';
-    img-src 'self' data: https://cdn.papy.rs https://media.tenor.com/ https://images.unsplash.com/;
+    img-src 'self' data: https://cdn.papy.rs https://media.tenor.com/ https://images.unsplash.com/ https://{{DECKDECKGO_STORAGE_CANISTER_ID}}.raw.ic0.app https://{{DECKDECKGO_STORAGE_CANISTER_ID}}.ic0.app;
     manifest-src 'self';
     style-src 'self' 'unsafe-inline' https://cdn.papy.rs;
     font-src 'self' https://cdn.papy.rs;
@@ -123,7 +123,7 @@ const csp = import.meta.env.PROD;
     window.data_canister_id = "{{DECKDECKGO_DATA_CANISTER_ID}}";
     window.doc_id = "{{DECKDECKGO_DATA_ID}}";
 
-    const dataReady = new CustomEvent('blogDataReady', {bubbles: true});
+    const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
     document.body.dispatchEvent(dataReady);
   </script>
 
