@@ -123,8 +123,13 @@ const csp = import.meta.env.PROD;
   <script is:inline>
     window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
 
-    const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
-    document.body.dispatchEvent(dataReady);
+    document.addEventListener("DOMContentLoaded", () => {
+
+      console.log(window.doc_id, window.data_canister_id, window.storage_canister_id);
+
+      const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
+      document.body.dispatchEvent(dataReady);
+    }, {once: true});
   </script>
 
   <slot />

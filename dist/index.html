@@ -9,7 +9,7 @@
     manifest-src 'self';
     style-src 'self' 'unsafe-inline' https://cdn.papy.rs;
     font-src 'self' https://cdn.papy.rs;
-    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-Im/Ze0iL8MvbG6lzuuCJo/N+USu/UWC4Bk75mUe5oYw=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' {{DECKDECKGO_IDS_SHAS}} https://cdn.papy.rs/ http://localhost:3335/;
+    script-src 'self' 'unsafe-eval' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-P/i2OonFjIb0NFxh43+tb4VuZLKzSClmLkrEzUrHL2U=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-kpra4RiYM0+z5+BrMsLRjjUclxVps1vt3+Mut+h4dsA=' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' {{DECKDECKGO_IDS_SHAS}} https://cdn.papy.rs/ http://localhost:3335/;
     connect-src blob: https://cdn.papy.rs https://ic0.app http://localhost:3335 http://localhost:8000;
     child-src 'self' blob: data:;
     object-src 'self' https://app.papy.rs http://localhost:5173 http://localhost:5174;
@@ -60,8 +60,13 @@
   <script>
     window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
 
-    const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
-    document.body.dispatchEvent(dataReady);
+    document.addEventListener("DOMContentLoaded", () => {
+
+      console.log(window.doc_id, window.data_canister_id, window.storage_canister_id);
+
+      const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
+      document.body.dispatchEvent(dataReady);
+    }, {once: true});
   </script>
 
   <title>%%DECKDECKGO_AUTHOR%% - Blog</title><meta name="description" content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"><meta property="og:title" content="{{DECKDECKGO_AUTHOR}} - Blog"><meta property="og:description" content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"><meta property="og:site_name" content="{{DECKDECKGO_AUTHOR}} - Blog"><meta property="og:type" content="website"><meta property="og:image" content="https://cnd.papy.rs/images/social-image.jpg"><meta name="twitter:title" content="{{DECKDECKGO_AUTHOR}} - Blog"><meta name="twitter:description" content="{{DECKDECKGO_AUTHOR}} - A blog build on web3 with Papyrs"><meta name="twitter:image:src" content="https://cdn.papy.rs/assets/images/social-image.jpg">
