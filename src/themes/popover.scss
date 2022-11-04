@@ -1,0 +1,6 @@
+@use "../../node_modules/@papyrs/ui/styles/mixins/overlay";
+
+// Inject the popover style globally for backwards compatibility because Svelte scope the style
+div.popover {
+  @include overlay.popover;
+}
