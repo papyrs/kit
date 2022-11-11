@@ -7,9 +7,10 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build:sw": "node ./build-sw.js",
-    "build:kit": "node build-kit.mjs",
-    "build:csp": "node build-csp.mjs",
-    "build": "astro build && npm run build:sw && npm run build:kit && npm run build:csp",
+    "build:kit": "node ./build-kit.mjs",
+    "build:csp": "node ./build-csp.mjs",
+    "build:astro": "node ./build-astro.mjs",
+    "build": "astro build && npm run build:astro && npm run build:sw && npm run build:kit && npm run build:csp",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write --plugin-search-dir=. ."
@@ -22,19 +23,19 @@
   "homepage": "https://papy.rs",
   "devDependencies": {
     "@deckdeckgo/editor": "^8.4.0",
-    "astro": "^1.2.5",
+    "astro": "^1.6.7",
     "autoprefixer": "^10.4.13",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.7.0",
     "prettier-plugin-svelte": "^2.8.0",
-    "sass": "^1.55.0",
+    "sass": "^1.56.1",
     "workbox-build": "^6.5.4"
   },
   "dependencies": {
     "@astrojs/svelte": "^1.0.2",
     "@deckdeckgo/sync": "^0.0.39",
-    "@papyrs/ic": "^0.0.24-2",
+    "@papyrs/ic": "^0.1.3",
     "@papyrs/ui": "^0.0.10",
-    "svelte": "^3.52.0"
+    "svelte": "^3.53.1"
   }
 }
