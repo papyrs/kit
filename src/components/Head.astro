@@ -119,14 +119,19 @@ const csp = import.meta.env.PROD;
   ></script>
 
   <!-- DECKDECKGO_IDS_SCRIPT -->
+  <!-- DECKDECKGO_HEAD_EXTRA -->
 
   <script is:inline>
     window.prismjs_cdn = "https://cdn.papy.rs/libs/prismjs/1.27.0";
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
-      document.body.dispatchEvent(dataReady);
-    }, {once: true});
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        const dataReady = new CustomEvent("blogDataReady", { bubbles: true });
+        document.body.dispatchEvent(dataReady);
+      },
+      { once: true }
+    );
   </script>
 
   <slot />
