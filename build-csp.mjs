@@ -41,7 +41,7 @@ const writeCSP = async ({ scriptHashes, indexHtml, entry }) =>
 
 const updateCSP = async (entry) => {
   const indexHtml = await readFile(join(process.cwd(), entry), "utf-8");
-  const scriptHashes = await computeHashes(indexHtml);
+  const scriptHashes = computeHashes(indexHtml);
   await writeCSP({ scriptHashes, indexHtml, entry });
 };
 
