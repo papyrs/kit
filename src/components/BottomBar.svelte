@@ -7,9 +7,7 @@
   let openSignIn = false;
 </script>
 
-<BottomBar columns={2}>
-  <Like on:papySignIn={() => (openSignIn = true)} />
-  <!-- button class="icon like"><IconChatBubbleOutline /></button -->
+<BottomBar columns={1}>
   <button class="icon" aria-label="Share" on:click={share}><IconShare /></button
   >
 </BottomBar>
