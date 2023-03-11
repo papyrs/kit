@@ -21,8 +21,8 @@ const csp = import.meta.env.PROD;
     script-src 'self' 'unsafe-eval' {{DECKDECKGO_EXTRA_SHAS}} {{DECKDECKGO_IDS_SHAS}} https://cdn.papy.rs/ https://cdn.deckdeckgo.com/;
     connect-src blob: https://cdn.papy.rs https://cdn.deckdeckgo.com https://ic0.app;
     child-src 'self' blob: data:;
-    object-src 'self' https://app.papy.rs https://azdqp-tqaaa-aaaal-ab7nq-cai.raw.icp0.io/proxy/signin;
-    frame-src 'self' https://app.papy.rs https://azdqp-tqaaa-aaaal-ab7nq-cai.raw.icp0.io/proxy/signin;
+    object-src 'self' https://app.papy.rs;
+    frame-src 'self' https://app.papy.rs;
     upgrade-insecure-requests;"
       />
     )
