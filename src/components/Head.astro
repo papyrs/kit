@@ -14,12 +14,12 @@ const csp = import.meta.env.PROD;
       <meta
         http-equiv="Content-Security-Policy"
         content="default-src 'none';
-    img-src 'self' data: https://cdn.papy.rs https://cdn.deckdeckgo.com https://media.tenor.com/ https://images.unsplash.com/ https://{{DECKDECKGO_STORAGE_CANISTER_ID}}.raw.ic0.app https://*.ic0.app;
+    img-src 'self' data: https://cdn.papy.rs https://cdn.deckdeckgo.com https://media.tenor.com/ https://images.unsplash.com/ https://{{DECKDECKGO_STORAGE_CANISTER_ID}}.raw.ic0.app https://{{DECKDECKGO_STORAGE_CANISTER_ID}}.raw.icp0.io https://*.ic0.app https://*.icp0.io;
     manifest-src 'self';
     style-src 'self' 'unsafe-inline' https://cdn.papy.rs https://cdn.deckdeckgo.com;
     font-src 'self' https://cdn.papy.rs https://cdn.deckdeckgo.com;
     script-src 'self' 'unsafe-eval' {{DECKDECKGO_EXTRA_SHAS}} {{DECKDECKGO_IDS_SHAS}} https://cdn.papy.rs/ https://cdn.deckdeckgo.com/;
-    connect-src blob: https://cdn.papy.rs https://cdn.deckdeckgo.com https://ic0.app;
+    connect-src blob: https://cdn.papy.rs https://cdn.deckdeckgo.com https://ic0.app https://icp0.io;
     child-src 'self' blob: data:;
     object-src 'self' https://app.papy.rs;
     frame-src 'self' https://app.papy.rs;
