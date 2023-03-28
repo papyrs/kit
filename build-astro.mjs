@@ -34,3 +34,15 @@ const updateCssLink = async (entry) => {
 
 const promises = htmlEntryPoints.map(updateCssLink);
 await Promise.all(promises);
+
+const removeHeadExtraComment = async () => {
+  const entry = join(process.cwd(), "dist", "index.html");
+  const indexHtml = await readFile(entry, "utf-8");
+  await writeFile(
+    entry,
+    indexHtml.replace("<!-- DECKDECKGO_HEAD_EXTRA -->", ""),
+    "utf-8"
+  );
+};
+
+await removeHeadExtraComment();
